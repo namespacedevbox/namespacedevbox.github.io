@@ -5034,7 +5034,7 @@ input.mdl-button[type="submit"] {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-collapse: collapse;
-  white-space: nowrap;
+  white-space: normal;/* nowrap;  MY TABLE*/
   font-size: 13px;
   background-color: rgb(255,255,255); }
   .mdl-data-table thead {
@@ -5052,7 +5052,7 @@ input.mdl-button[type="submit"] {
     .mdl-data-table tbody tr:hover {
       background-color: #eeeeee; }
   .mdl-data-table td, .mdl-data-table th {
-    padding: 0 18px 12px 18px;
+    padding: 0 18px 12px 18px; /*  18px 12px 18px; MY TABLE*/
     text-align: right; }
     .mdl-data-table td:first-of-type, .mdl-data-table th:first-of-type {
       padding-left: 24px; }
