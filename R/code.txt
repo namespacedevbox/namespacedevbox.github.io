@@ -1,0 +1,8 @@
+        //Закрывает дпанель
+        function my() {
+            var layout = document.querySelector('.mdl-layout');
+            layout.MaterialLayout.toggleDrawer();
+        } 
+
+//центрирует иконку в кнопке
+<i class="material-icons" style="color: #ffffff; font-size: 36px; display: inline-flex; justify-content: center;">keyboard_arrow_down</i>
