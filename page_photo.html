@@ -189,191 +189,172 @@
         }
     </style>
 
+    <script src='intense.js'></script>
+
+
 
     <div id="main1" class="mdl-grid" style="background: rgb(206, 62, 62);">
         <h1 style="text-align: center; padding-top: 60px;">Фотогалерея</h1>
     </div>
 
+    <div id="full" class="myfullscreen" style="position: fixed; top: 0; z-index: 10; background: dodgerblue; visibility: hidden;"
+        onclick="hide()">
+
+    </div>
+
 
     <div class="mdl-grid">
         <!-- First card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
             </div>
         </div>
         <!-- First card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
             </div>
         </div>
         <!-- First card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
             </div>
         </div>
         <!-- First card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
-            </div>
-        </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
             </div>
         </div>
         <!-- First card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
             </div>
         </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
             </div>
         </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
+
+
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
             </div>
         </div>
-        <!-- new card -->
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-                <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
-                </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
+            </div>
+        </div>
+
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="3" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a1.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="1" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a2.jpg') center / cover;">
+            </div>
+        </div>
+        <!-- First card -->
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div id="2" class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" onclick="show(this.id)" style="background: url('R/img/share/a3.jpg') center / cover;">
             </div>
         </div>
     </div>
@@ -413,6 +394,20 @@
         }, 400);
         return false;
     });
+
+    //Разворачивание картинки
+    function show(clicked_id) {
+        //alert(clicked_id)
+        document.getElementById("full").style.visibility = "visible";
+        document.body.style.overflow = "hidden";
+        //alert(document.getElementById(clicked_id).style.background);
+        document.getElementById("full").style.background = document.getElementById(clicked_id).style.background;//"url('R/img/logo" + "_150.png')";
+    }
+    //Сворачивание картинки
+    function hide() {
+        document.getElementById("full").style.visibility = "hidden";
+        document.body.style.overflow = "auto";
+    }
 </script>
 
 </html>
