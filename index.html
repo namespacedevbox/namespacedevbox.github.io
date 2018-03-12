@@ -20,8 +20,8 @@
 <body>
     <style>
         /* TEMP */
+
         .myfullscreen {
-            /* background: url('R/img/bg_main_1.jpg') no-repeat center center; */
             width: 100%;
             height: 100vh;
             overflow: hidden;
@@ -30,56 +30,194 @@
             -moz-background-size: cover;
             -o-background-size: cover;
         }
+
         body {
             background: #1e1e1e;
-            /* overflow: hidden; */
         }
+
         /*Верхний бар цвет*/
+
         .mdl-layout__header {
-            background: #212121
+            /* background: #212121 */
+            background: rgba(255, 255, 255, 0);
+            box-shadow: none;
         }
+
         /*Прозрачный верхний бар*/
+
         .demo-layout-transparent {
             /* background: url('bg.png') center / cover;*/
         }
+
         /*Фон контента*/
+
         .mdl-layout__content {
             /* background: url('4p_bg2_min.png') center / cover;*/
         }
+
         /*Меню цвет фона*/
+
         .mdl-layout__drawer {
             border-right: 1px solid #212121;
             background: #212121;
         }
+
         /*Меню цвет текста*/
+
         .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
             color: #ffffff;
         }
+
         /*Меню On mouse enter*/
+
         .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
             background-color: rgb(78, 78, 78);
         }
+
         /*Меню On mouse click*/
+
         .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
             background-color: rgb(78, 78, 78);
         }
+
         /*Меню Font size*/
+
         .mdl-navigation__link {
             font-size: 16px;
         }
+
         /* FAB Button*/
+
         .mdl-button--fab.mdl-button--colored {
             background: #424242;
             color: rgb(255, 255, 255);
         }
+
         .mdl-button--fab.mdl-button--colored:hover {
             background-color: #424242;
         }
+
         .mdl-button--fab.mdl-button--colored:focus:not(:active) {
             background-color: #424242;
         }
+
         .mdl-button--fab.mdl-button--colored:active {
             background-color: #424242;
+        }
+
+        /* arrow anim*/
+
+        @-webkit-keyframes arrow1 {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate(0,
+                0);
+                transform: translate(0, 0)
+            }
+            90% {
+                opacity: 0;
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0)
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translate(0,
+                36px);
+                transform: translate(0, 36px)
+            }
+        }
+
+        @keyframes arrow1 {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate(0, 0);
+                -ms-transform: translate(0,
+                0);
+                transform: translate(0, 0)
+            }
+            90% {
+                opacity: 0;
+                -webkit-transform: translate(0, 0);
+                -ms-transform: translate(0, 0);
+                transform: translate(0,
+                0)
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translate(0, 36px);
+                -ms-transform: translate(0, 36px);
+                transform: translate(0, 36px)
+            }
+        }
+
+        @-webkit-keyframes arrow2 {
+            0% {
+                opacity: 1;
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0)
+            }
+            90% {
+                opacity: 1;
+                -webkit-transform: translate(0,
+                0);
+                transform: translate(0, 0)
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: translate(0, 36px);
+                transform: translate(0, 36px)
+            }
+        }
+
+        @keyframes arrow2 {
+            0% {
+                opacity: 1;
+                -webkit-transform: translate(0, 0);
+                -ms-transform: translate(0, 0);
+                transform: translate(0, 0)
+            }
+            90% {
+                opacity: 1;
+                -webkit-transform: translate(0,
+                0);
+                -ms-transform: translate(0, 0);
+                transform: translate(0, 0)
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: translate(0, 36px);
+                -ms-transform: translate(0,
+                36px);
+                transform: translate(0, 36px)
+            }
+        }
+
+        .animated-arrow-1 {
+            -webkit-animation: arrow1 3s infinite ease-out;
+            animation: arrow1 3s infinite ease-out;
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+            opacity: 0
+        }
+
+        .animated-arrow-2 {
+            -webkit-animation: arrow2 3s infinite ease-in;
+            animation: arrow2 3s infinite ease-in;
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+            opacity: 1
+        }
+
+        .icon-arrow-hint {
+
+            overflow: hidden;
+            text-indent: 100%;
+            white-space: nowrap;
+
+            background-image: url("R/img/arrow.png");
+            height: 16px;
+            width: 24px;
+
+            display: block;
+            margin-bottom: 20px
         }
     </style>
 
@@ -96,9 +234,6 @@
     <!-- Layout -->
     <div id="drawer" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
-
-            <!--<div class="demo-layout-transparent mdl-layout mdl-js-layout">
-        <header class="mdl-layout__header mdl-layout__header--transparent">-->
             <div class="mdl-layout__header-row">
                 <!-- Title 
                 <span class="mdl-layout-title">Title</span -->
@@ -147,10 +282,14 @@
     </div>
     <div id="main1" class="myfullscreen" style="background: url('R/img/bg_main_1.jpg') center / cover;">
         <a href="#main2" style="position: absolute; left: 50%; top: 95%; transform: translate(-50%, -50%);">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ">
+            <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ">
                 <i class="material-icons" style="color: #ffffff;">keyboard_arrow_down</i>
-            </button>
+            </button> -->
+
+            <div class="icon-arrow-hint animated-arrow-1"></div>
+            <div class="icon-arrow-hint animated-arrow-2"></div>
         </a>
+
     </div>
     <section id="main2" class="myfullscreen1" style="background: #ffffff; padding: 5%">
         <div align="center">
