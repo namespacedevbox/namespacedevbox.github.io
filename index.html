@@ -6,246 +6,23 @@
     <title>4PerzЯ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">  -->
-    <!-- <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
     <link rel="stylesheet" href="R/css/material.css">
-    <link rel="stylesheet" href="R/css/style.css">
     <script defer src="R/js/material.js"></script>
-    <script src="R/js/script.js"></script>
-    <!-- <script>document.body.style.overflow = "hidden"; //HIDE SCROLL </script> -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="R/js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
-    <style>
-        /* TEMP */
-
-        .myfullscreen {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            background-size: cover;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-        }
-
-        body {
-            background: #1e1e1e;
-        }
-
-        /*Верхний бар цвет*/
-
-        .mdl-layout__header {
-            /* background: #212121 */
-            background: rgba(255, 255, 255, 0);
-            box-shadow: none;
-        }
-
-        /*Прозрачный верхний бар*/
-
-        .demo-layout-transparent {
-            /* background: url('bg.png') center / cover;*/
-        }
-
-        /*Фон контента*/
-
-        .mdl-layout__content {
-            /* background: url('4p_bg2_min.png') center / cover;*/
-        }
-
-        /*Меню цвет фона*/
-
-        .mdl-layout__drawer {
-            border-right: 1px solid #212121;
-            background: #212121;
-        }
-
-        /*Меню цвет текста*/
-
-        .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-            color: #ffffff;
-        }
-
-        /*Меню On mouse enter*/
-
-        .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
-            background-color: rgb(78, 78, 78);
-        }
-
-        /*Меню On mouse click*/
-
-        .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
-            background-color: rgb(78, 78, 78);
-        }
-
-        /*Меню Font size*/
-
-        .mdl-navigation__link {
-            font-size: 16px;
-        }
-
-        /* FAB Button*/
-
-        .mdl-button--fab.mdl-button--colored {
-            background: #424242;
-            color: rgb(255, 255, 255);
-        }
-
-        .mdl-button--fab.mdl-button--colored:hover {
-            background-color: #424242;
-        }
-
-        .mdl-button--fab.mdl-button--colored:focus:not(:active) {
-            background-color: #424242;
-        }
-
-        .mdl-button--fab.mdl-button--colored:active {
-            background-color: #424242;
-        }
-
-        /* arrow anim*/
-
-        @-webkit-keyframes arrow1 {
-            0% {
-                opacity: 0;
-                -webkit-transform: translate(0,
-                0);
-                transform: translate(0, 0)
-            }
-            90% {
-                opacity: 0;
-                -webkit-transform: translate(0, 0);
-                transform: translate(0, 0)
-            }
-            100% {
-                opacity: 1;
-                -webkit-transform: translate(0,
-                36px);
-                transform: translate(0, 36px)
-            }
-        }
-
-        @keyframes arrow1 {
-            0% {
-                opacity: 0;
-                -webkit-transform: translate(0, 0);
-                -ms-transform: translate(0,
-                0);
-                transform: translate(0, 0)
-            }
-            90% {
-                opacity: 0;
-                -webkit-transform: translate(0, 0);
-                -ms-transform: translate(0, 0);
-                transform: translate(0,
-                0)
-            }
-            100% {
-                opacity: 1;
-                -webkit-transform: translate(0, 36px);
-                -ms-transform: translate(0, 36px);
-                transform: translate(0, 36px)
-            }
-        }
-
-        @-webkit-keyframes arrow2 {
-            0% {
-                opacity: 1;
-                -webkit-transform: translate(0, 0);
-                transform: translate(0, 0)
-            }
-            90% {
-                opacity: 1;
-                -webkit-transform: translate(0,
-                0);
-                transform: translate(0, 0)
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: translate(0, 36px);
-                transform: translate(0, 36px)
-            }
-        }
-
-        @keyframes arrow2 {
-            0% {
-                opacity: 1;
-                -webkit-transform: translate(0, 0);
-                -ms-transform: translate(0, 0);
-                transform: translate(0, 0)
-            }
-            90% {
-                opacity: 1;
-                -webkit-transform: translate(0,
-                0);
-                -ms-transform: translate(0, 0);
-                transform: translate(0, 0)
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: translate(0, 36px);
-                -ms-transform: translate(0,
-                36px);
-                transform: translate(0, 36px)
-            }
-        }
-
-        .animated-arrow-1 {
-            -webkit-animation: arrow1 3s infinite ease-out;
-            animation: arrow1 3s infinite ease-out;
-            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-            opacity: 0
-        }
-
-        .animated-arrow-2 {
-            -webkit-animation: arrow2 3s infinite ease-in;
-            animation: arrow2 3s infinite ease-in;
-            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-            opacity: 1
-        }
-
-        .icon-arrow-hint {
-
-            overflow: hidden;
-            text-indent: 100%;
-            white-space: nowrap;
-
-            background-image: url("R/img/arrow.png");
-            height: 16px;
-            width: 24px;
-
-            display: block;
-            margin-bottom: 20px
-        }
-    </style>
-
-    <!--
-    <div class="spn_hol" id="pre">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
-    </div>
-     -->
-
     <!-- Layout -->
     <div id="drawer" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
-                <!-- Title 
-                <span class="mdl-layout-title">Title</span -->
+                <!-- <span class="mdl-layout-title">Title</span -->
                 <!-- Add spacer, to align navigation to the right -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
                 <nav class="mdl-navigation">
                     <!--
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>                    
                     -->
                 </nav>
             </div>
@@ -280,38 +57,35 @@
         </main> 
         -->
     </div>
-    <div id="main1" class="myfullscreen" style="background: url('R/img/bg_main_1.jpg') center / cover;">
+    <section id="main1" class="myfullscreen" style="background: url('R/img/bg_main_1.jpg') center / cover;">
         <a href="#main2" style="position: absolute; left: 50%; top: 95%; transform: translate(-50%, -50%);">
             <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ">
                 <i class="material-icons" style="color: #ffffff;">keyboard_arrow_down</i>
             </button> -->
-
             <div class="icon-arrow-hint animated-arrow-1"></div>
             <div class="icon-arrow-hint animated-arrow-2"></div>
         </a>
-
-    </div>
+    </section>
     <section id="main2" class="myfullscreen1" style="background: #ffffff; padding: 5%">
         <div align="center">
             <img src="R/img/text_separator_revert.png" />
         </div>
         <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--8-col">
-                <p style="font-size: 16px;">
-                    Кафе маминой кухни 4ПЕРЦЯ – Мы создавали идею домашнего заведения с теплой и позитивной атмосферой. Там, где каждый сможет
+                <div style="font-size: 18px; text-align: justify; line-height: 1.4;">
+                    Кафе маминой кухни 4ПерцЯ – Мы создавали идею домашнего заведения с теплой и позитивной атмосферой. Там, где каждый сможет
                     ощутить себя на маминой кухне, там, где тепло, уютно, а главное вкусно. Так было в моем детстве и теперь
                     я хочу поделится этим с Вами. Попробовать воздушные кексы с домашним вареньем, сочные ребра и колбаски,
                     как с воскресного пикника, тающие во рту пельмешки со сметанкой и домашней аджикой. Мы ждем каждого и
                     готовы передать всем частичку тепла и доброты как главные ингредиенты наших блюд. Галина Коптилова и
                     ее семья.
-                </p>
+                </div>
             </div>
             <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" align="center">
-                <img src="R/img/photo.jpg" />
+                <img src="R/img/photo.jpg" style="width: 100%;" />
             </div>
         </div>
         <div align="center">
-            <!-- style="padding-bottom: 25px" -->
             <img src="R/img/text_separator.png" />
         </div>
     </section>

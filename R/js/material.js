@@ -3368,7 +3368,6 @@ MaterialLayout.prototype.toggleDrawer = function () {
         drawerButton.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = "hidden"; //HIDE SCROLL
         document.getElementById("drawer").style.position = "fixed"; //POSITION
-        //document.getElementById("drawer").style.height = "100vh" //HEIGHT
         document.getElementById("drawer").style.zIndex = "500" //Z INDEX
     } else {
         this.drawer_.setAttribute('aria-hidden', 'true');
@@ -4001,3 +4000,14 @@ componentHandler.register({
     widget: false
 });
 }());
+
+//
+//MY SCRIPT
+//
+
+//Закрываем боковое меню
+function closeDrawer() {
+    var layout = document.querySelector('.mdl-layout');
+    layout.MaterialLayout.toggleDrawer();
+}
+
