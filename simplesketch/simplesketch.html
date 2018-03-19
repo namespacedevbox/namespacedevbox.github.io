@@ -52,20 +52,29 @@
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
                 <nav class="mdl-navigation">
-                    <button id="currentSize" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="clearCanvas(canvas,ctx)"
+                    <button id="clear" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="clearCanvas(canvas,ctx)"
                         style="background-color: #4CAF50; position: relative; transform: translateY(+50%)">
                         <i class="material-icons">delete</i>
                     </button>
+                    <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="clear">
+                        Очистить холст
+                    </div>
                     <div style="padding-left: 15px"></div>
                     <button id="currentSize" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick=""
                         style="background-color: #9C27B0; position: relative; transform: translateY(+50%)">
                         <i class="material-icons">bubble_chart</i>
                     </button>
+                    <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="currentSize">
+                        Размер кисти
+                    </div>
                     <div style="padding-left: 15px"></div>
                     <button id="currentColor" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                         style="background-color: #F44336; position: relative; transform: translateY(+50%)">
                         <i class="material-icons">gesture</i>
                     </button>
+                    <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="currentColor">
+                        Выбор цвета
+                    </div>
                 </nav>
             </div>
         </header>
@@ -180,7 +189,7 @@
                     </tr>
                 </table>
             </div>
-<!--             <div style="padding: 10px, 0px; text-align: center">
+            <!--             <div style="padding: 10px, 0px; text-align: center">
                 <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="closeDrawer()">
                     <i class="material-icons">clear</i>
                 </button>
