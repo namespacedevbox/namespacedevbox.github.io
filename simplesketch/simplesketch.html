@@ -41,6 +41,10 @@
             -ms-user-select: none;
             user-select: none;
         }
+
+        /* .mdl-layout__drawer-button{
+            visibility: hidden;
+        } */
     </style>
     <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -60,7 +64,7 @@
                         Очистить холст
                     </div>
                     <div style="padding-left: 15px"></div>
-                    <button id="currentSize" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick=""
+                    <button id="currentSize" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="openDrawer('size')"
                         style="background-color: #9C27B0; position: relative; transform: translateY(+50%)">
                         <i class="material-icons">bubble_chart</i>
                     </button>
@@ -68,7 +72,7 @@
                         Размер кисти
                     </div>
                     <div style="padding-left: 15px"></div>
-                    <button id="currentColor" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
+                    <button id="currentColor" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="openDrawer('colors')"
                         style="background-color: #F44336; position: relative; transform: translateY(+50%)">
                         <i class="material-icons">gesture</i>
                     </button>
@@ -79,10 +83,29 @@
             </div>
         </header>
         <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Colors</span>
-            <!--  <nav class="mdl-navigation"> -->
-            <div>
-                <table>
+            <span id="title" class="mdl-layout-title">Меню</span>
+            <div id="main">
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="">
+                        <i class="material-icons" style="margin-right: 5px">gesture</i>
+                        Рисование
+                    </a>
+                    <a class="mdl-navigation__link" href="">
+                        <i class="material-icons" style="margin-right: 5px">filter_1</i>
+                        in developing
+                    </a>
+                    <a class="mdl-navigation__link" href="">
+                        <i class="material-icons" style="margin-right: 5px">font_download</i>
+                        in developing
+                    </a>
+                    <a class="mdl-navigation__link" href="">
+                        <i class="material-icons" style="margin-right: 5px">class</i>
+                        in developing
+                    </a>
+                </nav>
+            </div>
+            <div id="colors" style="height: 0px; overflow: hidden;">
+                <table id="tableColors">
                     <tr>
                         <td>
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
@@ -189,44 +212,65 @@
                     </tr>
                 </table>
             </div>
-            <!--             <div style="padding: 10px, 0px; text-align: center">
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="closeDrawer()">
-                    <i class="material-icons">clear</i>
-                </button>
-            </div> -->
+            <div id="size" style="height: 0px; overflow: hidden;">
+                <table id="tableSize">
+                    <tr>
+                        <td>
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setSize(this)"
+                                style="background-color: rgb(0, 0, 0); min-width: 10px; width: 10px; height: 10px;">
+                                <i class="material-icons"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setSize(this)"
+                                style="background-color: rgb(0, 0, 0); min-width: 15px; width: 15px; height: 15px;">
+                                <i class="material-icons"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setSize(this)"
+                                style="background-color: rgb(0, 0, 0); min-width: 20px; width: 20px; height: 20px;">
+                                <i class="material-icons"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setSize(this)"
+                                style="background-color: rgb(0, 0, 0); min-width: 25px; width: 25px; height: 25px;">
+                                <i class="material-icons"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setSize(this)"
+                                style="background-color: rgb(0, 0, 0); min-width: 30px; width: 30px; height: 30px;">
+                                <i class="material-icons"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setSize(this)"
+                                style="background-color: rgb(0, 0, 0); min-width: 35px; width: 35px; height: 35px;">
+                                <i class="material-icons"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
 
-            <!--  </nav> -->
+            </div>
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <!-- Your content goes here -->
                 <canvas id="sketchpad">
                 </canvas>
-                <dialog class="mdl-dialog">
-                    <h4 class="mdl-dialog__title">Очистить весь холст?</h4>
-                    <div class="mdl-dialog__content">
-                        <p>
-                            <!-- Allowing us to collect data will let us get you the information you want faster. -->
-                        </p>
-                    </div>
-                    <div class="mdl-dialog__actions">
-                        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">ОК</button>
-                        <button type="button" class="mdl-button close">Отмена</button>
-                    </div>
-                </dialog>
-                <script>
-                    var dialog = document.querySelector('dialog');
-                    var showDialogButton = document.querySelector('#clear');
-                    if (!dialog.showModal) {
-                        dialogPolyfill.registerDialog(dialog);
-                    }
-                    showDialogButton.addEventListener('click', function () {
-                        dialog.showModal();
-                    });
-                    dialog.querySelector('.close').addEventListener('click', function () {
-                        dialog.close();
-                    });
-                </script>
         </main>
         </div>
 
@@ -384,13 +428,45 @@
                 /* for (var i = 0; i < document.getElementsByClassName("palette").length; i++) {
                     document.getElementsByClassName("palette")[i].innerHTML="done";             
                 } */
-
                 color = window.getComputedStyle(btn).backgroundColor;
                 ctx.beginPath();
                 ctx.strokeStyle = color;
                 //set current color
                 document.getElementById("currentColor").style.backgroundColor = window.getComputedStyle(btn).backgroundColor;
-                //Close drawer
+
+                var layout = document.querySelector('.mdl-layout');
+                layout.MaterialLayout.toggleDrawer();
+            }
+            function setSize(btn) {
+                radius = window.getComputedStyle(btn).width.replace('px', '');
+
+                var layout = document.querySelector('.mdl-layout');
+                layout.MaterialLayout.toggleDrawer();
+            }
+
+            function openDrawer(mode) {
+                document.getElementById("colors").style.height = "0px";
+                document.getElementById("colors").style.overflow = "hidden";
+                document.getElementById("size").style.height = "0px";
+                document.getElementById("size").style.overflow = "hidden";
+                document.getElementById("main").style.height = "0px";
+                document.getElementById("main").style.overflow = "hidden";
+
+                if (mode == "colors") {
+                    document.getElementById("colors").style.height = document.getElementById("tableColors").style.height;
+                    document.getElementById("colors").style.overflow = "auto";
+                    document.getElementById("title").innerHTML = "Цвета";
+                }
+                else if(mode == "size"){
+                    document.getElementById("size").style.height = document.getElementById("tableSize").style.height;
+                    document.getElementById("size").style.overflow = "auto";
+                    document.getElementById("title").innerHTML = "Размеры";
+                }
+               /*  else{
+                    document.getElementById("size").style.height = document.getElementById("tableSize").style.height;
+                    document.getElementById("size").style.overflow = "auto";
+                    document.getElementById("title").innerHTML = "Меню";
+                } */
                 var layout = document.querySelector('.mdl-layout');
                 layout.MaterialLayout.toggleDrawer();
             }
