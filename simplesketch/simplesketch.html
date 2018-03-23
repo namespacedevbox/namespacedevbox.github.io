@@ -41,6 +41,23 @@
             -ms-user-select: none;
             user-select: none;
         }
+
+        .mdl-slider__container {
+            height: 46px;
+        }
+
+        .mdl-slider.is-upgraded::-webkit-slider-thumb {
+
+            width: 20px;
+            height: 20px;
+        }
+
+        .mdl-slider.is-upgraded::-moz-range-thumb {
+
+            width: 20px;
+            height: 20px;
+        }
+
     </style>
 
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -354,33 +371,6 @@
             brush.style.height = this.value * 2 + "px";
             radius = this.value;
         }
-            /* function openDrawer(mode) {
-                document.getElementById("colors").style.height = "0px";
-                document.getElementById("colors").style.overflow = "hidden";
-                document.getElementById("size").style.height = "0px";
-                document.getElementById("size").style.overflow = "hidden";
-                document.getElementById("main").style.height = "0px";
-                document.getElementById("main").style.overflow = "hidden";
-                if (mode == "colors") {
-                    document.getElementById("colors").style.height = document.getElementById("tableColors").style.height;
-                    document.getElementById("colors").style.overflow = "auto";
-                    document.getElementById("title").innerHTML = "Цвета";
-                }
-                else if (mode == "size") {
-                    document.getElementById("size").style.height = document.getElementById("tableSize").style.height;
-                    document.getElementById("size").style.overflow = "auto";
-                    document.getElementById("title").innerHTML = "Размеры";
-                } */
-                /*  else{
-                     document.getElementById("size").style.height = document.getElementById("tableSize").style.height;
-                     document.getElementById("size").style.overflow = "auto";
-                     document.getElementById("title").innerHTML = "Меню";
-                 } */
-                /* var layout = document.querySelector('.mdl-layout');
-                layout.MaterialLayout.toggleDrawer();
-            } */
-
-
     </script>
 </body>
 
