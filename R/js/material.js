@@ -3366,15 +3366,15 @@ MaterialLayout.prototype.toggleDrawer = function () {
     if (this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
         this.drawer_.setAttribute('aria-hidden', 'false');
         drawerButton.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = "hidden"; //HIDE SCROLL
-        document.getElementById("drawer").style.position = "fixed"; //POSITION
-        document.getElementById("drawer").style.zIndex = "500" //Z INDEX
+        //document.body.style.overflow = "hidden"; //HIDE SCROLL
+        //document.getElementById("drawer").style.position = "fixed"; //POSITION
+        //document.getElementById("drawer").style.zIndex = "500" //Z INDEX
     } else {
         this.drawer_.setAttribute('aria-hidden', 'true');
         drawerButton.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = "auto"; //SHOW SCROLL
-        document.getElementById("drawer").style.position = "absolute"; //POSITION
-        document.getElementById("drawer").style.zIndex = "0" //Z INDEX
+        //document.body.style.overflow = "auto"; //SHOW SCROLL
+        //document.getElementById("drawer").style.position = "absolute"; //POSITION
+        //document.getElementById("drawer").style.zIndex = "0" //Z INDEX
     }
 };
 MaterialLayout.prototype['toggleDrawer'] = MaterialLayout.prototype.toggleDrawer;
@@ -4000,14 +4000,4 @@ componentHandler.register({
     widget: false
 });
 }());
-
-//
-//MY SCRIPT
-//
-
-//Закрываем боковое меню
-function closeDrawer() {
-    var layout = document.querySelector('.mdl-layout');
-    layout.MaterialLayout.toggleDrawer();
-}
 

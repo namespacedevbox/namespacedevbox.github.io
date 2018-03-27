@@ -1,10 +1,4 @@
 
-//Temp
-function loadPage() {
-    document.getElementById("pre").hidden = true;
-    document.body.style.overflow = "auto";
-}
-
 //Закрываем боковое меню
 function closeDrawer() {
     var layout = document.querySelector('.mdl-layout');
