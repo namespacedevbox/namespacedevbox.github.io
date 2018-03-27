@@ -7,26 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="R/css/material.css">
+    <link rel="stylesheet" href="R/css/style.css">
     <script defer src="R/js/material.js"></script>
-    <script src="R/js/jquery-3.3.1.min.js"></script>
+    <script defer src="R/js/script.js"></script>
 </head>
 
 <body>
     <!-- Layout -->
-    <div id="drawer" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- <span class="mdl-layout-title">Title</span -->
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
-                <nav class="mdl-navigation">
-                    <!--
-                    <a class="mdl-navigation__link" href="">Link</a>                    
-                    -->
-                </nav>
-            </div>
-        </header>
+    <div class="mdl-layout mdl-js-layout">
         <div class="mdl-layout__drawer">
             <!-- <span class="mdl-layout-title">Title</span>-->
             <div style="width:238px; text-align: center; margin-top: 40px;">
@@ -50,52 +38,45 @@
                     Контакты</a>
             </nav>
         </div>
-        <!--
         <main class="mdl-layout__content">
-            <div class="page-content">
-            </div>
-        </main> 
-        -->
+            <section id="main1" class="myfullscreen" style="background: url('R/img/bg_main_1.jpg') center / cover;">
+            </section>
+            <section id="main2" style="background: #ffffff; padding: 5%">
+                <div align="center">
+                    <img src="R/img/text_separator_revert.png" />
+                </div>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--8-col">
+                        <div style="font-size: 18px; text-align: justify; line-height: 1.4;">
+                            Кафе маминой кухни 4ПерцЯ – Мы создавали идею домашнего заведения с теплой и позитивной атмосферой. Там, где каждый сможет
+                            ощутить себя на маминой кухне, там, где тепло, уютно, а главное вкусно. Так было в моем детстве
+                            и теперь я хочу поделится этим с Вами. Попробовать воздушные кексы с домашним вареньем, сочные
+                            ребра и колбаски, как с воскресного пикника, тающие во рту пельмешки со сметанкой и домашней
+                            аджикой. Мы ждем каждого и готовы передать всем частичку тепла и доброты как главные ингредиенты
+                            наших блюд. Галина Коптилова и ее семья.
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" align="center">
+                        <img src="R/img/photo.jpg" style="width: 100%;" />
+                    </div>
+                </div>
+                <div align="center">
+                    <img src="R/img/text_separator.png" />
+                </div>
+            </section>
+            <section id="main3" style="background:url('R/img/bg_main_3.jpg') center / cover; height: 200px">
+            </section>
+        </main>
     </div>
-    <section id="main1" class="myfullscreen" style="background: url('R/img/bg_main_1.jpg') center / cover;">
-        <a href="#main2" style="position: absolute; left: 50%; top: 95%; transform: translate(-50%, -50%);">
-            <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ">
-                <i class="material-icons" style="color: #ffffff;">keyboard_arrow_down</i>
-            </button> -->
+    <div class="arrow">
+        <a href="#main2">
             <div class="icon-arrow-hint animated-arrow-1"></div>
             <div class="icon-arrow-hint animated-arrow-2"></div>
         </a>
-    </section>
-    <section id="main2" class="myfullscreen1" style="background: #ffffff; padding: 5%">
-        <div align="center">
-            <img src="R/img/text_separator_revert.png" />
-        </div>
-        <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--8-col">
-                <div style="font-size: 18px; text-align: justify; line-height: 1.4;">
-                    Кафе маминой кухни 4ПерцЯ – Мы создавали идею домашнего заведения с теплой и позитивной атмосферой. Там, где каждый сможет
-                    ощутить себя на маминой кухне, там, где тепло, уютно, а главное вкусно. Так было в моем детстве и теперь
-                    я хочу поделится этим с Вами. Попробовать воздушные кексы с домашним вареньем, сочные ребра и колбаски,
-                    как с воскресного пикника, тающие во рту пельмешки со сметанкой и домашней аджикой. Мы ждем каждого и
-                    готовы передать всем частичку тепла и доброты как главные ингредиенты наших блюд. Галина Коптилова и
-                    ее семья.
-                </div>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" align="center">
-                <img src="R/img/photo.jpg" style="width: 100%;" />
-            </div>
-        </div>
-        <div align="center">
-            <img src="R/img/text_separator.png" />
-        </div>
-    </section>
-
-    <section id="main3" style="background:url('R/img/bg_main_3.jpg') center / cover; height: 200px">
-    </section>
-
+    </div>
     <footer class="mdl-color--gray-900" style="box-sizing: content-box; /*display: -webkit-flex; display: -ms-flexbox; display: flex;*/ ">
         <a href="#main1">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%);">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%); z-index: 1;">
                 <i class="material-icons" style="color: #ffffff; font-size: 24px;">keyboard_arrow_up</i>
             </button>
         </a>
@@ -118,6 +99,7 @@
         </ul>
     </footer>
 </body>
+<script src="R/js/jquery-3.3.1.min.js"></script>
 <script>
     //Прокрутка к якорю
     var $page = $('html, body');

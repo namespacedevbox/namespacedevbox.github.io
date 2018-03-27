@@ -7,26 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="R/css/material.css">
+    <link rel="stylesheet" href="R/css/style.css">
     <script defer src="R/js/material.js"></script>
-    <script src="R/js/jquery-3.3.1.min.js"></script>
+    <script defer src="R/js/script.js"></script>
 </head>
 
 <body>
     <!-- Layout -->
-    <div id="drawer" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- <span class="mdl-layout-title">Title</span -->
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
-                <nav class="mdl-navigation">
-                    <!--
-                    <a class="mdl-navigation__link" href="">Link</a>                    
-                    -->
-                </nav>
-            </div>
-        </header>
+    <div class="mdl-layout mdl-js-layout">
         <div class="mdl-layout__drawer">
             <!-- <span class="mdl-layout-title">Title</span>-->
             <div style="width:238px; text-align: center; margin-top: 40px;">
@@ -50,299 +38,258 @@
                     Контакты</a>
             </nav>
         </div>
-        <!--
         <main class="mdl-layout__content">
-            <div class="page-content">
+            <div id="main1" class="mdl-grid" style="background: url('R/img/page_menu/pagemenu.jpg') right / cover; padding-left: 0;">
+                <div style="padding-top: 56px;">
+                    <h2 style="padding-left: 20px; padding-right: 10px; font-weight: 700; background: rgba(255, 255, 255, 0.5); color:#212121;">М Е Н Ю</h2>
+                </div>
+                <div class="mdl-layout-spacer"></div>
             </div>
-        </main> 
-        -->
+
+            <div class="mdl-grid">
+                <!-- 1st card -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <div style="background: url('R/img/page_menu/zakus.jpg') right / cover; height: 88px;">
+                                <h4 class="title-card">Закуски</h4>
+                            </div>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Пікантний з грінками</td>
+                                <td id="mytable-2-3-cell">100/100</td>
+                                <td id="mytable-2-3-cell">43-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сало з житніми грінками</td>
+                                <td id="mytable-2-3-cell">100/50</td>
+                                <td id="mytable-2-3-cell">45-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сенвіч з шинкою</td>
+                                <td id="mytable-2-3-cell">1шт</td>
+                                <td id="mytable-2-3-cell">60-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Соління</td>
+                                <td id="mytable-2-3-cell">100/100</td>
+                                <td id="mytable-2-3-cell">60-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Оселедець з картоплею</td>
+                                <td id="mytable-2-3-cell">450</td>
+                                <td id="mytable-2-3-cell">64-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">М'ясна тарілка</td>
+                                <td id="mytable-2-3-cell">400</td>
+                                <td id="mytable-2-3-cell">123-00₴</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 2nd card -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <div style="background: url('R/img/page_menu/salat.jpg') right / cover; height: 88px;">
+                                <h4 class="title-card">Салати</h4>
+                            </div>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Цезар з куркою</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">96-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Грецький</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">86-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Овочева тарілка</td>
+                                <td id="mytable-2-3-cell">350</td>
+                                <td id="mytable-2-3-cell">80-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Мікс</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">76-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Олів'є</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">65-00₴</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 1st card -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <div style="background: url('R/img/page_menu/zakus.jpg') right / cover; height: 88px;">
+                                <h4 class="title-card">Закуски</h4>
+                            </div>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Пікантний з грінками</td>
+                                <td id="mytable-2-3-cell">100/100</td>
+                                <td id="mytable-2-3-cell">43-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сало з житніми грінками</td>
+                                <td id="mytable-2-3-cell">100/50</td>
+                                <td id="mytable-2-3-cell">45-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сенвіч з шинкою</td>
+                                <td id="mytable-2-3-cell">1шт</td>
+                                <td id="mytable-2-3-cell">60-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Соління</td>
+                                <td id="mytable-2-3-cell">100/100</td>
+                                <td id="mytable-2-3-cell">60-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Оселедець з картоплею</td>
+                                <td id="mytable-2-3-cell">450</td>
+                                <td id="mytable-2-3-cell">64-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">М'ясна тарілка</td>
+                                <td id="mytable-2-3-cell">400</td>
+                                <td id="mytable-2-3-cell">123-00₴</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 2nd card -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <div style="background: url('R/img/page_menu/salat.jpg') right / cover; height: 88px;">
+                                <h4 class="title-card">Салати</h4>
+                            </div>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Цезар з куркою</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">96-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Грецький</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">86-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Овочева тарілка</td>
+                                <td id="mytable-2-3-cell">350</td>
+                                <td id="mytable-2-3-cell">80-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Мікс</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">76-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Олів'є</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">65-00₴</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 1st card -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <div style="background: url('R/img/page_menu/zakus.jpg') right / cover; height: 88px;">
+                                <h4 class="title-card">Закуски</h4>
+                            </div>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Пікантний з грінками</td>
+                                <td id="mytable-2-3-cell">100/100</td>
+                                <td id="mytable-2-3-cell">43-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сало з житніми грінками</td>
+                                <td id="mytable-2-3-cell">100/50</td>
+                                <td id="mytable-2-3-cell">45-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сенвіч з шинкою</td>
+                                <td id="mytable-2-3-cell">1шт</td>
+                                <td id="mytable-2-3-cell">60-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Соління</td>
+                                <td id="mytable-2-3-cell">100/100</td>
+                                <td id="mytable-2-3-cell">60-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Оселедець з картоплею</td>
+                                <td id="mytable-2-3-cell">450</td>
+                                <td id="mytable-2-3-cell">64-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">М'ясна тарілка</td>
+                                <td id="mytable-2-3-cell">400</td>
+                                <td id="mytable-2-3-cell">123-00₴</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 2nd card -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <div style="background: url('R/img/page_menu/salat.jpg') right / cover; height: 88px;">
+                                <h4 class="title-card">Салати</h4>
+                            </div>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Цезар з куркою</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">96-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Грецький</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">86-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Овочева тарілка</td>
+                                <td id="mytable-2-3-cell">350</td>
+                                <td id="mytable-2-3-cell">80-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Мікс</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">76-00₴</td>
+                            </tr>
+                            <tr>
+                                <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Олів'є</td>
+                                <td id="mytable-2-3-cell">200</td>
+                                <td id="mytable-2-3-cell">65-00₴</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
     </div>
-
-    <style>
-        #mytable-1-cell {
-            padding: 8px;
-            text-align: left;
-        }
-
-        #mytable-2-3-cell {
-            padding: 8px;
-            text-align: left;
-            width: 22%;
-        }
-
-        .mdl-grid {
-            background: #ffffff;
-            /*  justify-content: center; */
-        }
-
-        .mdl-data-table {
-            width: 100%;
-            table-layout: fixed;
-            font-size: 16px
-        }
-
-        .title-card {
-            background: rgba(255, 255, 255, 0.5);
-            color: black;
-            font-weight: 700;
-            padding-left: 10px;
-            padding-right: 5px;
-            transform: translateY(14%);
-            float: left;
-            clear: left;
-        }
-    </style>
-
-    <div id="main1" class="mdl-grid" style="background: url('R/img/page_menu/pagemenu.jpg') right / cover; padding-left: 0;">
-        <div style="padding-top: 56px;">
-            <h2 style="padding-left: 20px; padding-right: 10px; font-weight: 700; background: rgba(255, 255, 255, 0.5); color:#212121;">М Е Н Ю</h2>
-        </div>
-        <div class="mdl-layout-spacer"></div>
-    </div>
-
-    <div class="mdl-grid">
-        <!-- 1st card -->
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                <thead>
-                    <div style="background: url('R/img/page_menu/zakus.jpg') right / cover; height: 88px;">
-                        <h4 class="title-card">Закуски</h4>
-                    </div>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Пікантний з грінками</td>
-                        <td id="mytable-2-3-cell">100/100</td>
-                        <td id="mytable-2-3-cell">43-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сало з житніми грінками</td>
-                        <td id="mytable-2-3-cell">100/50</td>
-                        <td id="mytable-2-3-cell">45-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сенвіч з шинкою</td>
-                        <td id="mytable-2-3-cell">1шт</td>
-                        <td id="mytable-2-3-cell">60-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Соління</td>
-                        <td id="mytable-2-3-cell">100/100</td>
-                        <td id="mytable-2-3-cell">60-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Оселедець з картоплею</td>
-                        <td id="mytable-2-3-cell">450</td>
-                        <td id="mytable-2-3-cell">64-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">М'ясна тарілка</td>
-                        <td id="mytable-2-3-cell">400</td>
-                        <td id="mytable-2-3-cell">123-00₴</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- 2nd card -->
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                <thead>
-                    <div style="background: url('R/img/page_menu/salat.jpg') right / cover; height: 88px;">
-                        <h4 class="title-card">Салати</h4>
-                    </div>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Цезар з куркою</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">96-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Грецький</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">86-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Овочева тарілка</td>
-                        <td id="mytable-2-3-cell">350</td>
-                        <td id="mytable-2-3-cell">80-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Мікс</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">76-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Олів'є</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">65-00₴</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- 1st card -->
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                <thead>
-                    <div style="background: url('R/img/page_menu/zakus.jpg') right / cover; height: 88px;">
-                        <h4 class="title-card">Закуски</h4>
-                    </div>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Пікантний з грінками</td>
-                        <td id="mytable-2-3-cell">100/100</td>
-                        <td id="mytable-2-3-cell">43-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сало з житніми грінками</td>
-                        <td id="mytable-2-3-cell">100/50</td>
-                        <td id="mytable-2-3-cell">45-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сенвіч з шинкою</td>
-                        <td id="mytable-2-3-cell">1шт</td>
-                        <td id="mytable-2-3-cell">60-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Соління</td>
-                        <td id="mytable-2-3-cell">100/100</td>
-                        <td id="mytable-2-3-cell">60-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Оселедець з картоплею</td>
-                        <td id="mytable-2-3-cell">450</td>
-                        <td id="mytable-2-3-cell">64-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">М'ясна тарілка</td>
-                        <td id="mytable-2-3-cell">400</td>
-                        <td id="mytable-2-3-cell">123-00₴</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- 2nd card -->
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                <thead>
-                    <div style="background: url('R/img/page_menu/salat.jpg') right / cover; height: 88px;">
-                        <h4 class="title-card">Салати</h4>
-                    </div>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Цезар з куркою</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">96-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Грецький</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">86-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Овочева тарілка</td>
-                        <td id="mytable-2-3-cell">350</td>
-                        <td id="mytable-2-3-cell">80-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Мікс</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">76-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Олів'є</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">65-00₴</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- 1st card -->
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                <thead>
-                    <div style="background: url('R/img/page_menu/zakus.jpg') right / cover; height: 88px;">
-                        <h4 class="title-card">Закуски</h4>
-                    </div>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Пікантний з грінками</td>
-                        <td id="mytable-2-3-cell">100/100</td>
-                        <td id="mytable-2-3-cell">43-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сало з житніми грінками</td>
-                        <td id="mytable-2-3-cell">100/50</td>
-                        <td id="mytable-2-3-cell">45-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Сенвіч з шинкою</td>
-                        <td id="mytable-2-3-cell">1шт</td>
-                        <td id="mytable-2-3-cell">60-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Соління</td>
-                        <td id="mytable-2-3-cell">100/100</td>
-                        <td id="mytable-2-3-cell">60-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Оселедець з картоплею</td>
-                        <td id="mytable-2-3-cell">450</td>
-                        <td id="mytable-2-3-cell">64-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">М'ясна тарілка</td>
-                        <td id="mytable-2-3-cell">400</td>
-                        <td id="mytable-2-3-cell">123-00₴</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- 2nd card -->
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                <thead>
-                    <div style="background: url('R/img/page_menu/salat.jpg') right / cover; height: 88px;">
-                        <h4 class="title-card">Салати</h4>
-                    </div>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric mytable">Цезар з куркою</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">96-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Грецький</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">86-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Овочева тарілка</td>
-                        <td id="mytable-2-3-cell">350</td>
-                        <td id="mytable-2-3-cell">80-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Мікс</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">76-00₴</td>
-                    </tr>
-                    <tr>
-                        <td id="mytable-1-cell" class="mdl-data-table__cell--non-numeric">Олів'є</td>
-                        <td id="mytable-2-3-cell">200</td>
-                        <td id="mytable-2-3-cell">65-00₴</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
     <footer class="mdl-color--gray-900" style="box-sizing: content-box; /*display: -webkit-flex; display: -ms-flexbox; display: flex;*/ ">
         <a href="#main1">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%);">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%); z-index: 1;">
                 <i class="material-icons" style="color: #ffffff; font-size: 24px;">keyboard_arrow_up</i>
             </button>
         </a>
@@ -365,6 +312,7 @@
         </ul>
     </footer>
 </body>
+<script src="R/js/jquery-3.3.1.min.js"></script>
 <script>
     //Прокрутка к якорю
     var $page = $('html, body');

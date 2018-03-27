@@ -7,26 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="R/css/material.css">
+    <link rel="stylesheet" href="R/css/style.css">
     <script defer src="R/js/material.js"></script>
-    <script src="R/js/jquery-3.3.1.min.js"></script>
+    <script defer src="R/js/script.js"></script>
 </head>
 
 <body>
     <!-- Layout -->
-    <div id="drawer" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- <span class="mdl-layout-title">Title</span -->
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
-                <nav class="mdl-navigation">
-                    <!--
-                    <a class="mdl-navigation__link" href="">Link</a>                    
-                    -->
-                </nav>
-            </div>
-        </header>
+    <div class="mdl-layout mdl-js-layout">
         <div class="mdl-layout__drawer">
             <!-- <span class="mdl-layout-title">Title</span>-->
             <div style="width:238px; text-align: center; margin-top: 40px;">
@@ -50,70 +38,66 @@
                     Контакты</a>
             </nav>
         </div>
-        <!--
         <main class="mdl-layout__content">
-            <div class="page-content">
+            <div id="main1" class="mdl-grid" style="background: url('R/img/page_contact/pagecontact.jpg') right / cover; padding-left: 0;">
+                <div style="padding-top: 56px;">
+                    <h2 style=" padding-left: 20px; padding-right: 10px; font-weight: 700; background: rgba(255, 255, 255, 0.5); color:#212121;">КОНТАКТЫ</h2>
+                </div>
+                <div class="mdl-layout-spacer"></div>
             </div>
-        </main> 
-        -->
-    </div>
 
-    <div id="main1" class="mdl-grid" style="background: url('R/img/page_contact/pagecontact.jpg') right / cover; padding-left: 0;">
-        <div style="padding-top: 56px;">
-            <h2 style=" padding-left: 20px; padding-right: 10px; font-weight: 700; background: rgba(255, 255, 255, 0.5); color:#212121;">КОНТАКТЫ</h2>
-        </div>
-        <div class="mdl-layout-spacer"></div>
-    </div>
-
-    <div class="mdl-grid" style="padding-bottom: 30px">
-        <!-- 1st card -->
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" style="width: 100%; height: 100%; padding: 20px">
-                <a class="mdl-navigation__link" style="font-size: 20px;">
-                    <i class="material-icons" style="margin-right: 5px; font-size: 36px">person_pin_circle</i>г. Киев, ул. Градинского 9</a>
-                <br>
-                <br>
-                <a class="mdl-navigation__link" style="font-size: 20px;">
-                    <i class="material-icons" style="margin-right: 5px; font-size: 28px">access_time</i>Режим работы: 15:00-00:00</a>
-                <br>
-                <br>
-                <a class="mdl-navigation__link" style="font-size: 20px;">
-                    <div style="display: inline-block;">
-                    <i class="material-icons" style="margin-right: 5px; font-size: 28px">phone</i><span>+38 063 123 45 67</span></a>
+            <div class="mdl-grid" style="padding-bottom: 30px">
+                <!-- 1st card -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" style="width: 100%; height: 100%; padding: 20px">
+                        <a class="mdl-navigation__link" style="font-size: 20px;">
+                            <i class="material-icons" style="margin-right: 5px; font-size: 36px">person_pin_circle</i>г. Киев, ул. Градинского 9</a>
+                        <br>
+                        <br>
+                        <a class="mdl-navigation__link" style="font-size: 20px;">
+                            <i class="material-icons" style="margin-right: 5px; font-size: 28px">access_time</i>Режим работы: 15:00-00:00</a>
+                        <br>
+                        <br>
+                        <a class="mdl-navigation__link" style="font-size: 20px;">
+                            <div style="display: inline-block;">
+                                <i class="material-icons" style="margin-right: 5px; font-size: 28px">phone</i>
+                                <span>+38 063 123 45 67</span>
+                        </a>
+                        </div>
                     </div>
+                </div>
+                <!-- 2nd card -->
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" style="background: url('R/img/contact/adr1.jpg') center / cover; width: 100%; padding: 20px;">
+                        <a class="mdl-navigation__link" style="font-size: 20px;">
+                            <i class="material-icons" style="margin-right: 5px; font-size: 28px">wifi</i>WiFi</a>
+                        <br>
+                        <a class="mdl-navigation__link" style="font-size: 20px;">
+                            <i class="material-icons" style="margin-right: 5px; font-size: 28px">tv</i>Футбол</a>
+                        <br>
+                        <a class="mdl-navigation__link" style="font-size: 20px;">
+                            <i class="material-icons" style="margin-right: 5px; font-size: 28px">music_video</i>Музыка</a>
+                        <br>
+                        <a class="mdl-navigation__link" style="font-size: 20px;">
+                            <i class="material-icons" style="margin-right: 5px; font-size: 28px">mic</i>Караоке</a>
+                        <!--  <a class="mdl-navigation__link" style="font-size: 20px;">
+                                <i class="material-icons" style="margin-right: 5px; font-size: 28px">credit_card</i>Оплата картой</a> -->
+                    </div>
+                </div>
+                <!-- 3th card -->
+                <div id="map" class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" style="width: 100%;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2536.825414157974!2d30.595780515733885!3d50.518815179484804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d10f3e6abb79%3A0x630cc0641a5c94d2!2z0YPQuy4g0JPRgNCw0LTQuNC90YHQutCw0Y8sIDksINCa0LjQtdCyLCAwMjAwMA!5e0!3m2!1sru!2sua!4v1520618310723"
+                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- 2nd card -->
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" style="background: url('R/img/contact/adr1.jpg') center / cover; width: 100%; padding: 20px;">
-                <a class="mdl-navigation__link" style="font-size: 20px;">
-                    <i class="material-icons" style="margin-right: 5px; font-size: 28px">wifi</i>WiFi</a>
-                <br>
-                <a class="mdl-navigation__link" style="font-size: 20px;">
-                    <i class="material-icons" style="margin-right: 5px; font-size: 28px">tv</i>Футбол</a>
-                <br>
-                <a class="mdl-navigation__link" style="font-size: 20px;">
-                    <i class="material-icons" style="margin-right: 5px; font-size: 28px">music_video</i>Музыка</a>
-                <br>
-                <a class="mdl-navigation__link" style="font-size: 20px;">
-                    <i class="material-icons" style="margin-right: 5px; font-size: 28px">mic</i>Караоке</a>
-                <!--  <a class="mdl-navigation__link" style="font-size: 20px;">
-                    <i class="material-icons" style="margin-right: 5px; font-size: 28px">credit_card</i>Оплата картой</a> -->
-            </div>
-        </div>
-        <!-- 3th card -->
-        <div id="map" class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <div class="demo-card-image mdl-card mdl-shadow--2dp demo-image first" style="width: 100%;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2536.825414157974!2d30.595780515733885!3d50.518815179484804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d10f3e6abb79%3A0x630cc0641a5c94d2!2z0YPQuy4g0JPRgNCw0LTQuNC90YHQutCw0Y8sIDksINCa0LjQtdCyLCAwMjAwMA!5e0!3m2!1sru!2sua!4v1520618310723"
-                    width="100%" height="450" frameborder="0" style="border:0" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
+        </main>
     </div>
-
     <footer class="mdl-color--gray-900" style="box-sizing: content-box; /*display: -webkit-flex; display: -ms-flexbox; display: flex;*/ ">
         <a href="#main1">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%);">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%); z-index: 1;">
                 <i class="material-icons" style="color: #ffffff; font-size: 24px;">keyboard_arrow_up</i>
             </button>
         </a>
@@ -136,6 +120,7 @@
         </ul>
     </footer>
 </body>
+<script src="R/js/jquery-3.3.1.min.js"></script>
 <script>
     //Прокрутка к якорю
     var $page = $('html, body');
