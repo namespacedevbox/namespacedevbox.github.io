@@ -3368,13 +3368,14 @@ MaterialLayout.prototype.toggleDrawer = function () {
         drawerButton.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = "hidden"; //HIDE SCROLL
         //document.getElementById("drawer").style.position = "fixed"; //POSITION
-        //document.getElementById("drawer").style.zIndex = "500" //Z INDEX
+        document.ontouchmove = function(e){ e.preventDefault(); } //disable scroll on mobile
     } else {
         this.drawer_.setAttribute('aria-hidden', 'true');
         drawerButton.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = "auto"; //SHOW SCROLL
-        //document.getElementById("drawer").style.position = "absolute"; //POSITION
-        //document.getElementById("drawer").style.zIndex = "0" //Z INDEX
+        //document.getElementById("drawer").style.position = "relative"; //POSITION
+        document.ontouchmove = function(e){ e.stopPropagation(); } //enable scroll on mobile
+
     }
 };
 MaterialLayout.prototype['toggleDrawer'] = MaterialLayout.prototype.toggleDrawer;

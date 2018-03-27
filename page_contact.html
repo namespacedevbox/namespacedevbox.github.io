@@ -14,7 +14,7 @@
 
 <body>
     <!-- Layout -->
-    <div class="mdl-layout mdl-js-layout">
+    <div class="mdl-layout mdl-js-layout" id="drawer">
         <div class="mdl-layout__drawer">
             <!-- <span class="mdl-layout-title">Title</span>-->
             <div style="width:238px; text-align: center; margin-top: 40px;">
@@ -93,32 +93,32 @@
                     </div>
                 </div>
             </div>
+            <footer class="mdl-color--gray-900" style="box-sizing: content-box; /*display: -webkit-flex; display: -ms-flexbox; display: flex;*/ ">
+                <a href="#main1">
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%); z-index: 1;">
+                        <i class="material-icons" style="color: #ffffff; font-size: 24px;">keyboard_arrow_up</i>
+                    </button>
+                </a>
+                <ul class="mdl-mega-footer__link-list" style="text-align: center; color: rgb(158,158,158);">
+                    <li>
+                        <img src="R/img/logo_150.png" style="margin-bottom: 20px">
+                    </li>
+                    <li>
+                        <a href="page_contact.html">г. Киев, ул. Градинского 9</a>
+                    </li>
+                    <li>
+                        <a>Режим работы: 15:00-00:00</a>
+                    </li>
+                    <li>
+                        <a>Тел. +38 063 123 45 67</a>
+                    </li>
+                    <li>
+                        <a>© 2018</a>
+                    </li>
+                </ul>
+            </footer>
         </main>
-    </div>
-    <footer class="mdl-color--gray-900" style="box-sizing: content-box; /*display: -webkit-flex; display: -ms-flexbox; display: flex;*/ ">
-        <a href="#main1">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%); z-index: 1;">
-                <i class="material-icons" style="color: #ffffff; font-size: 24px;">keyboard_arrow_up</i>
-            </button>
-        </a>
-        <ul class="mdl-mega-footer__link-list" style="text-align: center; color: rgb(158,158,158);">
-            <li>
-                <img src="R/img/logo_150.png" style="margin-bottom: 20px">
-            </li>
-            <li>
-                <a href="page_contact.html">г. Киев, ул. Градинского 9</a>
-            </li>
-            <li>
-                <a>Режим работы: 15:00-00:00</a>
-            </li>
-            <li>
-                <a>Тел. +38 063 123 45 67</a>
-            </li>
-            <li>
-                <a>© 2018</a>
-            </li>
-        </ul>
-    </footer>
+    </div>    
 </body>
 <script src="R/js/jquery-3.3.1.min.js"></script>
 <script>
