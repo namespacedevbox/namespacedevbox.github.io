@@ -3366,22 +3366,19 @@ MaterialLayout.prototype.toggleDrawer = function () {
     if (this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
         this.drawer_.setAttribute('aria-hidden', 'false');
         drawerButton.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = "hidden"; //HIDE SCROLL
-        //document.getElementById("drawer").style.position = "fixed"; //POSITION
+        document.body.style.overflow = "hidden"; //HIDE SCROLL   
         document.ontouchmove = function(e){ e.preventDefault(); } //disable scroll on mobile
     } else {
         this.drawer_.setAttribute('aria-hidden', 'true');
         drawerButton.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = "auto"; //SHOW SCROLL
-        //document.getElementById("drawer").style.position = "relative"; //POSITION
-        document.ontouchmove = function(e){ e.stopPropagation(); } //enable scroll on mobile
-
+        document.ontouchmove = function(e){ /* e.stopPropagation(); */ return true;} //enable scroll on mobile
     }
 };
 MaterialLayout.prototype['toggleDrawer'] = MaterialLayout.prototype.toggleDrawer;
 /**
-   * Initialize element.
-   */
+ * Initialize element.
+ */
 MaterialLayout.prototype.init = function () {
     if (this.element_) {
         var container = document.createElement('div');
