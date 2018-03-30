@@ -6,3 +6,10 @@ function my() {
 
 //Центрируем иконку
 <i class="material-icons" style="color: #ffffff; font-size: 36px; display: inline-flex; justify-content: center;">keyboard_arrow_down</i>
+
+//bg + img
+background-image: url('w3css.gif');
+background-color: #000000;
+background-repeat: no-repeat;
+background-position: right top;
+background-size: 200px 200px; 

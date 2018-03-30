@@ -23,15 +23,15 @@
         <div class="mdl-layout__drawer">
             <!-- <span class="mdl-layout-title">Title</span>-->
             <div style="width:238px; text-align: center; margin-top: 40px;">
-                <img src="R/img/bg_menu_title_140.png" width="140" height="118" onclick="closeDrawer()" />
+                <img src="R/img/index/bg_menu_title.png" width="140" height="118" onclick="closeDrawer()" />
             </div>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="index.html">
                     <i class="material-icons" style="margin-right: 5px">favorite</i>
-                    Главная</a>
+                    Головна</a>
                 <a class="mdl-navigation__link" href="page_shares.html">
                     <i class="material-icons" style="margin-right: 5px">redeem</i>
-                    Акции</a>
+                    Акції</a>
                 <a class="mdl-navigation__link" href="page_menu.html">
                     <i class="material-icons" style="margin-right: 5px">restaurant</i>
                     Меню</a>
@@ -40,11 +40,11 @@
                     Фотогалерея</a>
                 <a class="mdl-navigation__link" href="page_contact.html">
                     <i class="material-icons" style="margin-right: 5px">pin_drop</i>
-                    Контакты</a>
+                    Контакти</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
-            <div id="main1" class="myfullscreen" style="background: url('R/img/bg_main_1.jpg') center / cover;">
+            <div id="main1" class="myfullscreen" style="background: url('R/img/index/bg_main.jpg') center / cover;">
                 <div class="arrow">
                     <a href="#main2">
                         <div class="icon-arrow-hint animated-arrow-1"></div>
@@ -54,7 +54,7 @@
             </div>
             <div id="main2" style="background: #ffffff; padding: 5%">
                 <div align="center">
-                    <img src="R/img/text_separator_revert.png" />
+                    <img style="transform: rotate(180deg)" src="R/img/index/text_separator.png" />
                 </div>
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--8-col">
@@ -68,41 +68,41 @@
                         </div>
                     </div>
                     <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" align="center">
-                        <img src="R/img/photo.jpg" style="width: 100%;" />
+                        <img src="R/img/index/photo.jpg" style="width: 100%;" />
                     </div>
                 </div>
                 <div align="center">
-                    <img src="R/img/text_separator.png" />
+                    <img src="R/img/index/text_separator.png" />
                 </div>
             </div>
-            <div id="main3" style="background:url('R/img/bg_main_3.jpg') center / cover; height: 200px">
+            <div id="main3" style="background:url('R/img/index/bg_footer.jpg') center / cover; height: 200px">
             </div>
-            <footer class="mdl-color--gray-900" style="box-sizing: content-box; /*display: -webkit-flex; display: -ms-flexbox; display: flex;*/ ">
-                <a href="#main1">
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%); z-index: 1;">
-                        <i class="material-icons" style="color: #ffffff; font-size: 24px;">keyboard_arrow_up</i>
-                    </button>
-                </a>
-                <ul class="mdl-mega-footer__link-list" style="text-align: center; color: rgb(158,158,158);">
-                    <li>
-                        <img src="R/img/logo_150.png" style="margin-bottom: 20px">
-                    </li>
-                    <li>
-                        <a href="page_contact.html">г. Киев, ул. Градинского 9</a>
-                    </li>
-                    <li>
-                        <a>Режим работы: 15:00-00:00</a>
-                    </li>
-                    <li>
-                        <a>Тел. +38 063 123 45 67</a>
-                    </li>
-                    <li>
-                        <a>© 2018</a>
-                    </li>
-                </ul>
-            </footer>
         </main>
     </div>
+    <footer class="mdl-color--gray-900" style="box-sizing: content-box;">
+        <a href="#main1">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%); z-index: 1;">
+                <i class="material-icons" style="color: #ffffff; font-size: 24px;">keyboard_arrow_up</i>
+            </button>
+        </a>
+        <ul class="mdl-mega-footer__link-list" style="text-align: center; color: rgb(158,158,158);">
+            <li>
+                <img src="R/img/index/bg_logo.png" style="margin-bottom: 20px">
+            </li>
+            <li>
+                <a href="page_contact.html">м. Киев, вул. Градинська 9</a>
+            </li>
+            <li>
+                <a>Режим роботи: 15:00-00:00</a>
+            </li>
+            <li>
+                <a>Тел. +38 063 123 45 67</a>
+            </li>
+            <li>
+                <a>© 2018</a>
+            </li>
+        </ul>
+    </footer>
 </body>
 <script src="R/js/jquery-3.3.1.min.js"></script>
 <script>
