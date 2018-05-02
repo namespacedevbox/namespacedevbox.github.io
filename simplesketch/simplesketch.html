@@ -18,20 +18,50 @@
 <body onload="init()">
 
     <style>
-        /*Таблица*/
-
-        table {
+        .colors-table {
             width: 100%;
             overflow: hidden;
         }
 
-        td {
+        .colors-td {
             text-align: center;
             width: 50%;
             padding: 10px;
         }
 
-        /*Контент*/
+        .panel-slider {
+            position: absolute;
+            top: 50px;
+            right: 5%;
+            width: 200px;
+            height: 120px;
+            background: #ffffff;
+            padding-top: 0px;
+            z-index: 3;
+            border-radius: 7px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .dot {
+            background: #3F51B5;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .cell-dot {
+            width: 50px;
+            height: 50px;
+        }
+
+        .cell-slider {
+            width: 145px;
+            height: 50px;
+        }
 
         .page-content {
             -webkit-touch-callout: none;
@@ -42,10 +72,9 @@
             user-select: none;
         }
 
-         /*Slider*/
-        .slidecontainer {
+        .slider-container {
             width: calc(100% - 12px);
-        }       
+        }
 
         .slider {
             -webkit-appearance: none;
@@ -70,7 +99,7 @@
             height: 25px;
             border-radius: 50%;
             border: none;
-            background:#3F51B5;
+            background: #3F51B5;
             cursor: pointer;
         }
 
@@ -88,10 +117,8 @@
         <header class="mdl-layout__header" id="header">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title">Sketch</span>
-                <!-- Add spacer, to align navigation to the right -->
+                <span class="mdl-layout-title" onclick="location.reload();">Sketch</span>
                 <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
                 <nav class="mdl-navigation">
                     <button id="clear" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="clearCanvas(canvas,ctx)"
                         style="background-color: #4CAF50; position: relative; transform: translateY(+50%)">
@@ -105,7 +132,7 @@
                     <div style="padding-left: 15px"></div>
                     <button id="currentColor" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                         style="background-color: #F44336; position: relative; transform: translateY(+50%)">
-                        <i class="material-icons">gesture</i>
+                        <i id="iconPalette" class="material-icons">color_lens</i>
                     </button>
                 </nav>
             </div>
@@ -113,15 +140,15 @@
         <div class="mdl-layout__drawer">
             <span id="title" class="mdl-layout-title">Цвета</span>
             <div id="colors">
-                <table id="tableColors">
+                <table id="tableColors" class="colors-table">
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #F44336">
                                 <i class="material-icons palette"></i>
                             </button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #E91E63">
                                 <i class="material-icons palette"></i>
@@ -129,91 +156,91 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #9C27B0"></button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #673AB7"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #3F51B5"></button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #2196F3"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #00BCD4"></button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #E91E63"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #009688"></button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #4CAF50"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #8BC34A"></button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #CDDC39"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #FFEB3B"></button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #FFC107"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #FF9800"></button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #FF5722"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #795548"></button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #9E9E9E"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #000000"></button>
                         </td>
-                        <td>
+                        <td class="colors-td">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
                                 style="background-color: #FFFFFF"></button>
                         </td>
@@ -223,16 +250,16 @@
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
-                <!-- Your content goes here -->
-                <div id="panelSlider" class="mdl-shadow--2dp" style="position: absolute; top: 50px; right: 5%; width: 200px; height: 70px; background: #ffffff; padding-top: 0px; z-index: 3; border-radius: 1px; visibility: hidden;">
-                    <table style="width: 100%; height: 70px; padding: 0; margin: 0;">
+                <div id="panelSlider" class="mdl-shadow--4dp panel-slider">
+                    <h5 align="center">Размер кисти</h5>
+                    <table style="width: 100%;">
                         <tr>
-                            <td style="width: 35px; padding: 0; margin: 0">
-                                <div class="mdl-shadow--2dp" id="brush" style="background: #000000; height: 20px; width: 20px; border-radius: 50%; position: relative; left: 50%; transform: translateX(-50%)"></div>
+                            <td class="cell-dot">
+                                <div class="mdl-shadow--2dp dot" id="brush"></div>
                             </td>
-                            <td style="width: 150px; padding: 0; margin: 0">                                
-                                <div class="slidecontainer">
-                                    <input id="slider" type="range" min="3" max="16" value="10" class="slider" onfocusout="openPanelSlider()">
+                            <td class="cell-slider">
+                                <div class="slider-container">
+                                    <input id="slider" type="range" min="3" max="16" value="10" class="slider">
                                 </div>
                             </td>
                         </tr>
@@ -270,16 +297,19 @@
         // Clear the canvas context using the canvas width and height
         function clearCanvas(canvas, ctx) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            canvasSave();
         }
         // Keep track of the mouse button being pressed and draw a dot at current location
         function sketchpad_mouseDown() {
             mouseDown = 1;
             drawDot(ctx, mouseX, mouseY, radius);
+            canvasHandler();
         }
         // Keep track of the mouse button being released
         function sketchpad_mouseUp() {
             mouseDown = 0;
             ctx.beginPath(); //for line
+            canvasSave();
         }
         // Keep track of the mouse position and draw a dot if mouse button is currently pressed
         function sketchpad_mouseMove(e) {
@@ -311,6 +341,7 @@
             //ctx.beginPath(); //for line
             // Prevents an additional mousedown event being triggered
             event.preventDefault();
+            canvasHandler();
         }
         // Draw something and prevent the default scrolling when touch movement is detected
         function sketchpad_touchMove(e) {
@@ -330,6 +361,7 @@
             ctx.beginPath(); //for line
             // Prevent a scrolling action as a result of this touchmove triggering.
             event.preventDefault();
+            canvasSave();
         }
         // Get the touch position relative to the top-left of the canvas
         // When we get the raw values of pageX and pageY below, they take into account the scrolling on the page
@@ -367,6 +399,14 @@
             //Size
             canvas.width = document.documentElement.clientWidth;
             canvas.height = document.documentElement.clientHeight - document.getElementById("header").offsetHeight;
+
+            var dataURL = localStorage.getItem('canvasSave');
+            var img = new Image;
+            img.src = dataURL;
+            img.onload = function () {
+                ctx.drawImage(img, 0, 0);
+            };
+
         }
         function setColor(btn) {
             /* for (var i = 0; i < document.getElementsByClassName("palette").length; i++) {
@@ -375,19 +415,31 @@
             color = window.getComputedStyle(btn).backgroundColor;
             ctx.beginPath();
             ctx.strokeStyle = color;
-            //set current color
+            //Set current color
             document.getElementById("currentColor").style.backgroundColor = window.getComputedStyle(btn).backgroundColor;
+
+            //Set icon color on button
+            var icon = document.getElementById("iconPalette");
+            if (color == 'rgb(255, 255, 255)') {
+                icon.style.color = '#000000';
+            }
+            else {
+                icon.style.color = '#ffffff';
+            }
+            //Close drawer
             var layout = document.querySelector('.mdl-layout');
             layout.MaterialLayout.toggleDrawer();
         }
         function openPanelSlider() {
             var panelSlider = document.getElementById("panelSlider");
-            if (panelSlider.style.visibility == "hidden") {
+            var sliderDisplay = window.getComputedStyle(panelSlider).display;
+
+            if (sliderDisplay == "none") {
                 panelSlider.style.left = document.getElementById("currentSize").offsetLeft - 70 + "px";
-                panelSlider.style.visibility = "visible";
+                panelSlider.style.display = "block";
             }
             else {
-                panelSlider.style.visibility = "hidden";
+                panelSlider.style.display = "none";
             }
         }
         var slider = document.getElementById("slider");
@@ -396,6 +448,15 @@
             brush.style.width = this.value * 2 + "px";
             brush.style.height = this.value * 2 + "px";
             radius = this.value;
+        }
+        function canvasHandler() {
+            var panelSlider = document.getElementById("panelSlider");
+            if (panelSlider.style.display == "block") {
+                panelSlider.style.display = "none";
+            }  
+        }
+        function canvasSave(){
+            window.localStorage.setItem('canvasSave', canvas.toDataURL());
         }
     </script>
 </body>
