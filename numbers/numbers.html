@@ -14,8 +14,55 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Numbers">
 </head>
+<style>
+    #grid {
+        margin-top: 20px;
+    }
 
-<body>
+    #gameover {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background: white;
+        display: none;
+        z-index: 10;
+    }
+
+    .card {
+        transform-style: preserve-3d;
+        height: 170px;
+    }
+
+    .back {
+        background-image: url('back.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transform: rotate3d(0, 1, 0, 180deg);
+        transition: all .8s;
+    }
+
+    .front {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transform: rotate3d(0, 1, 0, 0deg);
+        transition: all .8s;
+    }
+
+    .shown {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+</style>
+
+<body>  
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header" id="header">
             <div class="mdl-layout__header-row">
@@ -33,46 +80,27 @@
         <div class="mdl-layout__drawer">
             <span id="title" class="mdl-layout-title"></span>
             <div id="colors">
-
             </div>
         </div>
-        <style>
-            #grid {
-                margin-top: 20px;
-            }
-
-            .card {
-                transform-style: preserve-3d;
-                height: 170px;
-            }
-
-            .back {
-                background-image: url('back.jpg');
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: contain;
-                transform: rotate3d(0, 1, 0, 180deg);
-                transition: all .8s;
-            }
-
-            .front {
-                /*  background-image: url('f.jpg'); */
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: contain;
-                transform: rotate3d(0, 1, 0, 0deg);
-                transition: all .8s;
-            }
-
-            .shown {
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: contain;
-            }
-        </style>
         <main class="mdl-layout__content">
+            <img src="1.jpg" style="display: none;">
+            <img src="2.jpg" style="display: none;">
+            <img src="3.jpg" style="display: none;">
+            <img src="4.jpg" style="display: none;">
+            <img src="5.jpg" style="display: none;">
+            <img src="6.jpg" style="display: none;">
+            <img src="7.jpg" style="display: none;">
+            <img src="8.jpg" style="display: none;">
+            <img src="9.jpg" style="display: none;">
+            <img src="10.jpg" style="display: none;">
             <div id="grid" class="mdl-grid">
             </div>
+            <div id="gameover">
+                    <img id="giftImg" src="" style="position: relative; top: 50%; transform:translateY(-50%);" >
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="gift(this)" style="width: 100px;height: 100px; position: relative; top: 50%; transform:translateY(-50%)">
+                        <img src="gift.svg" style="width: 60px;height: 60px;">
+                    </button>
+                </div>
         </main>
     </div>
 
@@ -93,7 +121,6 @@
                     if (count != 2 && !this.classList.contains("shown") && !this.classList.contains("front")) {
                         count++;
                         this.style.backgroundImage = "url('" + this.id + ".jpg')";
-                        this.style.backgroundSize = "contain";
                         this.classList.remove("back");
                         this.classList.add("front");
                         if (count == 2) {
@@ -104,7 +131,7 @@
                                 setTimeout(removeFront, 1000);
                             }
                             else {
-                                setTimeout(itemHide, 1500);
+                                setTimeout(hineItem, 1500);
                             }
                         }
                     }
@@ -126,7 +153,7 @@
             }
         }
 
-        function itemHide() {
+        function hineItem() {
             var cells = document.getElementsByClassName("mdl-cell");
             for (var i = 0; i < cells.length; i++) {
                 if (cells[i].classList.contains("front")) {
@@ -138,14 +165,20 @@
             count = 0;
         }
 
-        function gameOver() {
-            alert("win");
+        function gameOver() { 
             var cells = document.getElementsByClassName("mdl-cell");
             for (var i = 0; i < cells.length; i++) {
                 cells[i].classList.remove("shown");
                 cells[i].classList.add("back");
                 cells[i].style.backgroundImage = "";
             }
+            document.getElementById("gameover").style.display = "block";
+        }
+
+        function gift(btn) {
+            btn.style.display = "none";
+            var img = "g" + (Math.floor(Math.random() * (6 - 1)) + 1) + ".jpg";
+            document.getElementById("giftImg").src = img;            
         }
 
         Array.prototype.shuffle = function () {
