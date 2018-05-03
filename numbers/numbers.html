@@ -12,107 +12,10 @@
     <link rel="apple-touch-icon" href="ic_launcher_ios.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Simple Sketch">
+    <meta name="apple-mobile-web-app-title" content="Numbers">
 </head>
 
-<body onload="init()">
-
-    <style>
-        .colors-table {
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .colors-td {
-            text-align: center;
-            width: 50%;
-            padding: 10px;
-        }
-
-        .panel-slider {
-            position: absolute;
-            top: 50px;
-            right: 5%;
-            width: 200px;
-            height: 120px;
-            background: #ffffff;
-            padding-top: 0px;
-            z-index: 3;
-            border-radius: 7px;
-            overflow: hidden;
-            display: none;
-        }
-
-        .dot {
-            background: #3F51B5;
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%)
-        }
-
-        .cell-dot {
-            width: 50px;
-            height: 50px;
-        }
-
-        .cell-slider {
-            width: 145px;
-            height: 50px;
-        }
-
-        .page-content {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .slider-container {
-            width: calc(100% - 12px);
-        }
-
-        .slider {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 5px;
-            border-radius: 5px;
-            background: #d3d3d3;
-            outline: none;
-            opacity: 0.7;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
-        }
-
-        .slider:hover {
-            opacity: 1;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            border: none;
-            background: #3F51B5;
-            cursor: pointer;
-        }
-
-        .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            border: none;
-            background: #3F51B5;
-            cursor: pointer;
-        }
-    </style>
-
+<body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header" id="header">
             <div class="mdl-layout__header-row">
@@ -122,211 +25,142 @@
                 <nav class="mdl-navigation">
                     <button id="reload" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="location.reload();"
                         style="background-color: #F44336; position: relative; transform: translateY(+50%)">
-                        <i id="iconPalette" class="material-icons">loop</i>
+                        <i id="iconPalette" class="material-icons">refresh</i>
                     </button>
                 </nav>
             </div>
         </header>
         <div class="mdl-layout__drawer">
-            <span id="title" class="mdl-layout-title">Цвета</span>
+            <span id="title" class="mdl-layout-title"></span>
             <div id="colors">
-                <table id="tableColors" class="colors-table">
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #F44336">
-                                <i class="material-icons palette"></i>
-                            </button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #E91E63">
-                                <i class="material-icons palette"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #9C27B0"></button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #673AB7"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #3F51B5"></button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #2196F3"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #00BCD4"></button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #E91E63"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #009688"></button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #4CAF50"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #8BC34A"></button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #CDDC39"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #FFEB3B"></button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #FFC107"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #FF9800"></button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #FF5722"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #795548"></button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #9E9E9E"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #000000"></button>
-                        </td>
-                        <td class="colors-td">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setColor(this)"
-                                style="background-color: #FFFFFF"></button>
-                        </td>
-                    </tr>
-                </table>
+
             </div>
         </div>
         <style>
-            .item-back {
-                width: 100%;
-                /* src: 'c.jpg'; */
-            }
-
             #grid {
                 margin-top: 20px;
             }
 
             .card {
                 transform-style: preserve-3d;
-            }
-
-            .back,
-            .front {
-                transition: all .8s;
+                height: 170px;
             }
 
             .back {
-                width: 150px;
-                height: 225px;
-                background-image: url('c.jpg');
+                background-image: url('back.jpg');
                 background-repeat: no-repeat;
                 background-position: center;
-                /*  transform: rotate3d(0, 1, 0, 0deg); */
+                background-size: contain;
+                transform: rotate3d(0, 1, 0, 180deg);
+                transition: all .8s;
             }
 
             .front {
-                width: 150px;
-                height: 225px;
-                background-image: url('f.jpg');
+                /*  background-image: url('f.jpg'); */
                 background-repeat: no-repeat;
                 background-position: center;
-                transform: rotate3d(0, 1, 0, 180deg);
+                background-size: contain;
+                transform: rotate3d(0, 1, 0, 0deg);
+                transition: all .8s;
+            }
+
+            .shown {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
             }
         </style>
         <main class="mdl-layout__content">
-            <!-- <div class="back"></div> -->
             <div id="grid" class="mdl-grid">
             </div>
         </main>
     </div>
 
-    <script>   
+    <script> 
         var count = 0;
+        var shownCount = 0;
+        var shownCountMax = 10;
 
         window.onload = function () {
-            for (var i = 0; i < 9; i++) {
+            var idArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+            idArray.shuffle();
+
+            for (var i = 0; i < 20; i++) {
                 var div = document.createElement("div");
-                div.id = i;
+                div.id = idArray[i];
                 div.classList.add("mdl-cell", "mdl-cell--2-col", "mdl-cell--2-col-tablet", "mdl-cell--1-col-phone", "back", "card");
                 div.onclick = function () {
-                    if (count != 2) {
-
-
+                    if (count != 2 && !this.classList.contains("shown") && !this.classList.contains("front")) {
                         count++;
+                        this.style.backgroundImage = "url('" + this.id + ".jpg')";
+                        this.style.backgroundSize = "contain";
                         this.classList.remove("back");
                         this.classList.add("front");
                         if (count == 2) {
-                            setTimeout(itemHide, 1500);
-                            // itemHide();
+                            var cells = document.getElementsByClassName("front");
+                            if (cells[0].id == cells[1].id) {
+                                cells[0].classList.add("shown");
+                                cells[1].classList.add("shown");
+                                setTimeout(removeFront, 1000);
+                            }
+                            else {
+                                setTimeout(itemHide, 1500);
+                            }
                         }
                     }
                 };
-
-                //var img = document.createElement("img");
-                //img.classList.add("item-back, back");
-                //img.src = 'c.jpg';
-                //div.appendChild(img);
                 var element = document.getElementById("grid");
                 element.appendChild(div);
             }
-
         }
-        //document.getElementById("1").classList.remove
 
-        function itemHide() {
-
-            count = 0;
-
-            var cells = document.getElementsByClassName("mdl-cell");
-
+        function removeFront() {
+            var cells = document.getElementsByClassName("shown");
             for (var i = 0; i < cells.length; i++) {
                 cells[i].classList.remove("front");
-                cells[i].classList.add("back");
-
             }
-        } 
+            count = 0;
+            shownCount++;
+            if (shownCount == shownCountMax) {
+                gameOver();
+            }
+        }
+
+        function itemHide() {
+            var cells = document.getElementsByClassName("mdl-cell");
+            for (var i = 0; i < cells.length; i++) {
+                if (cells[i].classList.contains("front")) {
+                    cells[i].classList.remove("front");
+                    cells[i].classList.add("back");
+                    cells[i].style.backgroundImage = "";
+                }
+            }
+            count = 0;
+        }
+
+        function gameOver() {
+            alert("win");
+            var cells = document.getElementsByClassName("mdl-cell");
+            for (var i = 0; i < cells.length; i++) {
+                cells[i].classList.remove("shown");
+                cells[i].classList.add("back");
+                cells[i].style.backgroundImage = "";
+            }
+        }
+
+        Array.prototype.shuffle = function () {
+            var input = this;
+
+            for (var i = input.length - 1; i >= 0; i--) {
+
+                var randomIndex = Math.floor(Math.random() * (i + 1));
+                var itemAtIndex = input[randomIndex];
+
+                input[randomIndex] = input[i];
+                input[i] = itemAtIndex;
+            }
+            return input;
+        }
     </script>
 </body>
 
