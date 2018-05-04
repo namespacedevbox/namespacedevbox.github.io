@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Card</title>
+    <title>Цифры</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -12,11 +12,33 @@
     <link rel="apple-touch-icon" href="ic_launcher_ios.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Numbers">
+    <meta name="apple-mobile-web-app-title" content="Цифры">
 </head>
 <style>
+    @keyframes giftshow {
+        0% {
+            transform: scale(0.1);
+            border-radius: 25%;
+        }
+        100% {
+            transform: scale(1);
+            border-radius: 0%;
+        }
+    }
+
+    @keyframes imgshow {
+        0% {
+            opacity: 0;
+            border-radius: 25%;
+        }
+        100% {
+            opacity: 100%;
+            border-radius: 0%;
+        }
+    }
+
     #grid {
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     #gameover {
@@ -28,6 +50,11 @@
         background: white;
         display: none;
         z-index: 10;
+        animation: giftshow .5s;
+    }
+
+    .imgshow {
+        animation: imgshow .7s;
     }
 
     .card {
@@ -41,7 +68,7 @@
         background-position: center;
         background-size: contain;
         transform: rotate3d(0, 1, 0, 180deg);
-        transition: all .8s;
+        transition: all .4s;
     }
 
     .front {
@@ -49,29 +76,40 @@
         background-position: center;
         background-size: contain;
         transform: rotate3d(0, 1, 0, 0deg);
-        transition: all .8s;
+        transition: all .5s;
     }
 
     .shown {
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
+        transform: rotate(360deg);
         -ms-transform: rotate(360deg);
         -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+
+    .page-content {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 </style>
 
-<body>  
+<body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header" id="header">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title" onclick="location.reload();">Numbers</span>
+                <span class="mdl-layout-title">Цифры</span>
                 <div class="mdl-layout-spacer"></div>
                 <nav class="mdl-navigation">
                     <button id="reload" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="location.reload();"
-                        style="background-color: #F44336; position: relative; transform: translateY(+50%)">
+                        style="background-color: #8BC34A; position: relative; transform: translateY(+50%)">
                         <i id="iconPalette" class="material-icons">refresh</i>
                     </button>
                 </nav>
@@ -82,7 +120,7 @@
             <div id="colors">
             </div>
         </div>
-        <main class="mdl-layout__content">
+        <main class="mdl-layout__content page-content">
             <img src="1.jpg" style="display: none;">
             <img src="2.jpg" style="display: none;">
             <img src="3.jpg" style="display: none;">
@@ -93,14 +131,44 @@
             <img src="8.jpg" style="display: none;">
             <img src="9.jpg" style="display: none;">
             <img src="10.jpg" style="display: none;">
+            <audio id="1">
+                <source src="1.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="2">
+                <source src="2.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="3">
+                <source src="3.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="4">
+                <source src="4.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="5">
+                <source src="5.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="6">
+                <source src="6.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="7">
+                <source src="7.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="8">
+                <source src="8.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="9">
+                <source src="9.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="10">
+                <source src="10.mp3" type="audio/mpeg">
+            </audio>
             <div id="grid" class="mdl-grid">
             </div>
             <div id="gameover">
-                    <img id="giftImg" src="" style="position: relative; top: 50%; transform:translateY(-50%);" >
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="gift(this)" style="width: 100px;height: 100px; position: relative; top: 50%; transform:translateY(-50%)">
-                        <img src="gift.svg" style="width: 60px;height: 60px;">
-                    </button>
-                </div>
+                <img id="giftImg" src="" style="position: relative; top: 50%; transform:translateY(-50%);">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="gift(this)" style="width: 350px;height: 350px; position: relative; top: 50%; transform:translateY(-50%)">
+                    <img src="gift.svg" style="width: 250px;height: 250px;">
+                </button>
+            </div>
         </main>
     </div>
 
@@ -123,6 +191,8 @@
                         this.style.backgroundImage = "url('" + this.id + ".jpg')";
                         this.classList.remove("back");
                         this.classList.add("front");
+                        var audio = document.getElementById(this.id);
+                        audio.play();
                         if (count == 2) {
                             var cells = document.getElementsByClassName("front");
                             if (cells[0].id == cells[1].id) {
@@ -149,7 +219,7 @@
             count = 0;
             shownCount++;
             if (shownCount == shownCountMax) {
-                gameOver();
+                setTimeout(gameOver, 800);
             }
         }
 
@@ -165,20 +235,15 @@
             count = 0;
         }
 
-        function gameOver() { 
-            var cells = document.getElementsByClassName("mdl-cell");
-            for (var i = 0; i < cells.length; i++) {
-                cells[i].classList.remove("shown");
-                cells[i].classList.add("back");
-                cells[i].style.backgroundImage = "";
-            }
+        function gameOver() {
             document.getElementById("gameover").style.display = "block";
         }
 
         function gift(btn) {
             btn.style.display = "none";
-            var img = "g" + (Math.floor(Math.random() * (6 - 1)) + 1) + ".jpg";
-            document.getElementById("giftImg").src = img;            
+            var img = "g" + (Math.floor(Math.random() * (9 - 1)) + 1) + ".jpg";
+            document.getElementById("giftImg").src = img;
+            document.getElementById("giftImg").classList.add("imgshow");
         }
 
         Array.prototype.shuffle = function () {
