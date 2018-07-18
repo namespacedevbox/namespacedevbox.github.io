@@ -51,6 +51,13 @@
 
     }
 
+    #sectionView2 {
+        position: absolute;
+        left: 100%;
+        padding: 10px;
+
+    }
+
     .slideHide {
         animation-name: hide;
         animation-duration: 0.5s;
@@ -113,6 +120,7 @@
         color: #FFFFFF;
         top: 15px;
         left: 15px;
+        visibility: hidden;
     }
 </style>
 
@@ -129,7 +137,7 @@
                 <!-- <i class="material-icons">keyboard_arrow_right</i> -->
                 Date
             </div>
-            <button class="mdl-button mdl-js-button mdl-button--icon btn-back" onclick="BtnBack()">
+            <button id="btn-back" class="mdl-button mdl-js-button mdl-button--icon btn-back" onclick="BtnBack()">
                 <i class="material-icons">arrow_back_ios</i>
             </button>
 
@@ -152,7 +160,7 @@
                 </div>
                 <div class="sections mdl-shadow--2dp">
                     <table>
-                        <tr>
+                        <tr onclick="Section2()">
                             <td style="width: 100%">
                                 <div class="text">Руки</div>
                             </td>
@@ -166,7 +174,7 @@
                 </div>
                 <div class="sections mdl-shadow--2dp">
                     <table>
-                        <tr>
+                        <tr onclick="Section3()">
                             <td style="width: 100%">
                                 <div class="text">Спина</div>
                             </td>
@@ -180,7 +188,7 @@
                 </div>
                 <div class="sections mdl-shadow--2dp">
                     <table>
-                        <tr>
+                        <tr onclick="Section4()">
                             <td style="width: 100%">
                                 <div class="text">Ноги</div>
                             </td>
@@ -204,6 +212,19 @@
                     <label class="mdl-textfield__label" for="sample1">раз</label>
                 </div>
             </div>
+            <div id="sectionView2">
+                <p>Штанга биц</p>
+                <div class="mdl-textfield mdl-js-textfield" style="width: 50px">
+                    <input class="mdl-textfield__input" type="text" id="sample1">
+                    <label class="mdl-textfield__label" for="sample1">кг</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield" style="width: 50px">
+                    <input class="mdl-textfield__input" type="text" id="sample1">
+                    <label class="mdl-textfield__label" for="sample1">раз</label>
+                </div>
+            </div>
+            <div id="sectionView3"></div>
+            <div id="sectionView4"></div>
         </main>
     </div>
     <script>
@@ -215,6 +236,7 @@
             document.getElementById("sectionView3").style.width = screen.width - 20 + "px";
             document.getElementById("sectionView4").style.width = screen.width - 20 + "px";
 
+            var currSection;
         }
 
         function GetDate() {
@@ -233,23 +255,52 @@
         }
 
         function Section1() {
-            document.getElementById("main").classList.remove("slideShow");
-            document.getElementById("main").classList.add("slideHide");
-            document.getElementById("main").style.left = "-" + screen.width + "px";
-
-            document.getElementById("sectionView1").classList.remove("sectionsHide");
-            document.getElementById("sectionView1").classList.add("sectionsShow");
-            document.getElementById("sectionView1").style.left = "0px";
-
+            currSection = "sectionView1";
+            MainHide();
+            SectionShow();
         }
-        function BtnBack() {
+        function Section2() {
+            currSection = "sectionView2";
+            MainHide();
+            SectionShow();
+        }
+        function Section3() {
+            currSection = "sectionView3";
+            MainHide();
+            SectionShow();
+        }
+        function Section4() {
+            currSection = "sectionView4";
+            MainHide();
+            SectionShow();
+        }
+
+        function MainShow() {
             document.getElementById("main").classList.remove("slideHide");
             document.getElementById("main").classList.add("slideShow");
             document.getElementById("main").style.left = "0px";
+        }
+        function MainHide() {
+            document.getElementById("main").classList.remove("slideShow");
+            document.getElementById("main").classList.add("slideHide");
+            document.getElementById("main").style.left = "-" + screen.width + "px";
+        }
+        function SectionShow() {
+            document.getElementById(currSection).classList.remove("sectionsHide");
+            document.getElementById(currSection).classList.add("sectionsShow");
+            document.getElementById(currSection).style.left = "0px";
+            document.getElementById("btn-back").style.visibility = "visible";
+        }
+        function SectionHide() {
+            document.getElementById(currSection).classList.remove("sectionsShow");
+            document.getElementById(currSection).classList.add("sectionsHide");
+            document.getElementById(currSection).style.left = "100%";
+            document.getElementById("btn-back").style.visibility = "hidden";
+        }
 
-            document.getElementById("sectionView1").classList.remove("sectionsShow");
-            document.getElementById("sectionView1").classList.add("sectionsHide");
-            document.getElementById("sectionView1").style.left = "100%";
+        function BtnBack() {
+            MainShow();
+            SectionHide();   
         }
     </script>
 
