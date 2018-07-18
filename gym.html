@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GYM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</head>
+
+<style>
+    .page-content {
+        padding: 10px;
+    }
+
+    .sections {
+        width: 100%;
+        height: 120px;
+        background: #FFFFFF;
+        border-radius: 5px;
+        margin: 0 0 10px 0;
+        text-align: center;
+    }
+
+    .text {
+        padding: 25px;
+        font-size: 36px;
+        text-align: center;
+        color: #424242;
+    }
+</style>
+
+<body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Title</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Title</span>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class="sections mdl-shadow--2dp">
+                    <div class="text">Грудь</div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Начать
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sections mdl-shadow--2dp">
+                    <div class="text">Руки</div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Начать
+                        </a>
+                    </div>
+                </div>
+                <div class="sections mdl-shadow--2dp">
+                    <div class="text">Спина, плечи</div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Начать
+                        </a>
+                    </div>
+                </div>
+                <div class="sections mdl-shadow--2dp">
+                    <div class="text">Ноги</div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Начать
+                        </a>
+                    </div>
+                </div>
+
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 100%">
+                    <tbody>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric" style="font-size: 24px">Грудь</td>
+                            <td>
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                                    Начать
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric" style="font-size: 24px">Руки</td>
+                            <td>
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                                    Начать
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric" style="font-size: 24px">Спина</td>
+                            <td>
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                    <i class="material-icons">keyboard_arrow_right</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
