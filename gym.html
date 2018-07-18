@@ -12,8 +12,15 @@
 </head>
 
 <style>
-    .page-content {
+    .mdl-layout__content {
         padding: 10px;
+    }
+
+    .head {
+        width: 100%;
+        font-size: 28px;
+        text-align: center;
+        padding: 15px 0 0 0;
     }
 
     .sections {
@@ -28,77 +35,77 @@
         padding: 25px;
         font-size: 24px;
         color: #212121;
-        /*  display: inline-block; */
+    }
+
+    #main {
+        position: absolute;
+        left: 0%;
+        padding: 10px;
+        /*  width: 375px; */
+    }
+
+    #exercises {
+        position: absolute;
+        left: 100%;
+        padding: 10px;
+
+    }
+
+    .slide {
+        -webkit-animation-name: example;
+        /* Safari 4.0 - 8.0 */
+        -webkit-animation-duration: 1s;
+        /* Safari 4.0 - 8.0 */
+        animation-name: example;
+        animation-duration: 1s;
+    }
+
+
+    @-webkit-keyframes example {
+        0% {
+
+            left: 0px;
+        }
+
+        100% {
+            left: -375px;
+
+        }
+    }
+
+    /* Standard syntax */
+
+    @keyframes example {
+        0% {
+
+            left: 0px;
+        }
+
+
+        100% {
+            left: -375px;
+
+        }
     }
 </style>
 
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- Title -->
-                <div style="position: relative; transform: translateX(100%)">
-                        <i  class="material-icons">fitness_center</i>
-                </div>
-                <!-- <span class="mdl-layout-title">
-                    <i class="material-icons">fitness_center</i>
-                </span> -->
-               
-                <!-- <div class="mdl-layout-spacer"></div> -->
-               
-                <!-- <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <a class="mdl-navigation__link" href="">Link</a>
-                </nav> -->
-            </div>
+            <div class="head">18.07.18</div>
+            <!--  <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">
+                   
+                    Exercise diary
+                </span>
+            </div> -->
         </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Title</span>
-        </div>
+
         <main class="mdl-layout__content">
-            <div class="page-content">
-                <!--    <div class="sections mdl-shadow--2dp">
-                    <div class="text">Грудь</div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                            Начать
-                        </a>
-                    </div>
-                </div>
-
-                <div class="sections mdl-shadow--2dp">
-                    <div class="text">Руки</div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                            Начать
-                        </a>
-                    </div>
-                </div>
-                <div class="sections mdl-shadow--2dp">
-                    <div class="text">Спина, плечи</div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                            Начать
-                        </a>
-                    </div>
-                </div>
-                <div class="sections mdl-shadow--2dp">
-                    <div class="text">Ноги</div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                            Начать
-                        </a>
-                    </div>
-                </div> -->
-                <div id="main">
-
-                </div>
-                <div id="exercises">
-
-                </div>
-
+            <div id="main">
                 <div class="sections mdl-shadow--2dp">
                     <table>
-                        <tr>
+                        <tr onclick="s1()">
                             <td style="width: 100%">
                                 <div class="text">Грудь</div>
                             </td>
@@ -110,40 +117,63 @@
                         </tr>
                     </table>
                 </div>
-
-
-                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 100%">
-                    <tbody>
+                <div class="sections mdl-shadow--2dp">
+                    <table>
                         <tr>
-                            <td class="mdl-data-table__cell--non-numeric" style="font-size: 24px">Грудь</td>
+                            <td style="width: 100%">
+                                <div class="text">Руки</div>
+                            </td>
                             <td>
                                 <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
                                     <i class="material-icons">keyboard_arrow_right</i>
                                 </button>
                             </td>
                         </tr>
+                    </table>
+                </div>
+                <div class="sections mdl-shadow--2dp">
+                    <table>
                         <tr>
-                            <td class="mdl-data-table__cell--non-numeric" style="font-size: 24px">Руки</td>
+                            <td style="width: 100%">
+                                <div class="text">Спина</div>
+                            </td>
                             <td>
                                 <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
                                     <i class="material-icons">keyboard_arrow_right</i>
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="mdl-data-table__cell--non-numeric" style="font-size: 24px">Спина</td>
-                            <td>
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-                                    <i class="material-icons">keyboard_arrow_right</i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+                    </table>
+                </div>
+            </div>
+            <div id="exercises">
+                <p>Штанга</p>
+                <div class="mdl-textfield mdl-js-textfield" style="width: 50px">
+                    <input class="mdl-textfield__input" type="text" id="sample1">
+                    <label class="mdl-textfield__label" for="sample1">кг</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield" style="width: 50px">
+                    <input class="mdl-textfield__input" type="text" id="sample1">
+                    <label class="mdl-textfield__label" for="sample1">раз</label>
+                </div>
             </div>
         </main>
     </div>
+    <script>
+        window.onload = function load() {
+            document.getElementById("main").style.width = screen.width - 20 + "px";
+        }
+
+        function s1() {
+            //alert("1");
+            //var x = "Total Width: " + screen.width;
+            //alert( document.getElementById("main").width);
+            //document.getElementById("main").style.left = "-" + screen.width + "px";
+            document.getElementById("main").classList.add("slide");
+            document.getElementById("main").style.left = "-" + screen.width + "px";
+            document.getElementById("exercises").style.left = "0%";
+        }
+    </script>
 
 </body>
 
