@@ -20,7 +20,7 @@
         width: 100%;
         font-size: 28px;
         text-align: center;
-        padding: 15px 0 0 0;
+        transform: translateY(100%);
     }
 
     .sections {
@@ -41,7 +41,6 @@
         position: absolute;
         left: 0%;
         padding: 10px;
-        /*  width: 375px; */
     }
 
     #exercises {
@@ -52,39 +51,27 @@
     }
 
     .slide {
-        -webkit-animation-name: example;
-        /* Safari 4.0 - 8.0 */
-        -webkit-animation-duration: 1s;
-        /* Safari 4.0 - 8.0 */
+        /* -webkit-animation-name: example;
+        -webkit-animation-duration: 0.5s; */
         animation-name: example;
-        animation-duration: 1s;
+        animation-duration: 0.5s;
     }
 
-
-    @-webkit-keyframes example {
+    /* @-webkit-keyframes example {
         0% {
-
             left: 0px;
         }
-
         100% {
             left: -375px;
-
         }
-    }
-
-    /* Standard syntax */
+    } */
 
     @keyframes example {
         0% {
-
             left: 0px;
         }
-
-
         100% {
             left: -375px;
-
         }
     }
 </style>
@@ -92,13 +79,10 @@
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
-            <div class="head">18.07.18</div>
-            <!--  <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title">
-                   
-                    Exercise diary
-                </span>
-            </div> -->
+            <div id="head" class="head">
+                <i class="material-icons">keyboard_arrow_right</i>
+                Date
+            </div>
         </header>
 
         <main class="mdl-layout__content">
@@ -145,6 +129,20 @@
                         </tr>
                     </table>
                 </div>
+                <div class="sections mdl-shadow--2dp">
+                    <table>
+                        <tr>
+                            <td style="width: 100%">
+                                <div class="text">Ноги</div>
+                            </td>
+                            <td>
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                    <i class="material-icons">keyboard_arrow_right</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div id="exercises">
                 <p>Штанга</p>
@@ -160,8 +158,24 @@
         </main>
     </div>
     <script>
-        window.onload = function load() {
+        window.onload = function () {
             document.getElementById("main").style.width = screen.width - 20 + "px";
+            document.getElementById("head").innerHTML = GetDate();
+        }
+
+        function GetDate() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var today = dd + '.' + mm + '.' + yyyy;
+            return today;
         }
 
         function s1() {
