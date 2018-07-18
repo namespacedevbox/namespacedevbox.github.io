@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css" />
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="Icon" sizes="192x192" href="ic_launcher.png">
+    <link rel="apple-touch-icon" href="ic_launcher_ios.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="GYM">
 </head>
 
 <style>
@@ -16,11 +21,18 @@
         padding: 10px;
     }
 
-    .head {
+    .header {
         width: 100%;
-        font-size: 28px;
+        height: 64px;
+        background: #2196F3;
         text-align: center;
-        transform: translateY(100%);
+    }
+
+    .head {
+        /*  width: 100%; */
+        font-size: 28px;
+        /*   text-align: center;
+        transform: translateY(100%); */
         color: #FFFFFF;
     }
 
@@ -126,17 +138,12 @@
 
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header1" style="width: 100%; height: 64px; background: #2196F3">
-            <!--   <button class="mdl-button mdl-js-button btn-back" onclick="BtnBack()">
-                <i class="material-icons">arrow_back_ios</i>
-            </button> -->
-
-
-
-            <div id="head" class="head">
-                <!-- <i class="material-icons">keyboard_arrow_right</i> -->
-                Date
+        <header class="header">
+            <div style="transform: translateY(25%);">
+                <i style="display: inline-block; transform: translateY(25%); color:#FFFFFF; font-size: 32px" class="material-icons">event_note</i>
+                <div style="display: inline-block;" id="head" class="head">Date</div>
             </div>
+
             <button id="btn-back" class="mdl-button mdl-js-button mdl-button--icon btn-back" onclick="BtnBack()">
                 <i class="material-icons">arrow_back_ios</i>
             </button>
@@ -300,7 +307,7 @@
 
         function BtnBack() {
             MainShow();
-            SectionHide();   
+            SectionHide();
         }
     </script>
 
