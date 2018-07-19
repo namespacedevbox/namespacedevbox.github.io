@@ -29,10 +29,7 @@
     }
 
     .head {
-        /*  width: 100%; */
         font-size: 28px;
-        /*   text-align: center;
-        transform: translateY(100%); */
         color: #FFFFFF;
     }
 
@@ -50,34 +47,26 @@
         color: #212121;
     }
 
+    .sectionsView {
+        position: absolute;
+        left: 100%;
+        padding: 10px;
+    }
+
     #main {
         position: absolute;
         left: 0%;
         padding: 10px;
     }
 
-    #sectionView1 {
-        position: absolute;
-        left: 100%;
-        padding: 10px;
-
-    }
-
-    #sectionView2 {
-        position: absolute;
-        left: 100%;
-        padding: 10px;
-
-    }
-
     .slideHide {
         animation-name: hide;
-        animation-duration: 0.5s;
+        animation-duration: 0.35s;
     }
 
     .slideShow {
         animation-name: show;
-        animation-duration: 0.5s;
+        animation-duration: 0.35s;
     }
 
     @keyframes hide {
@@ -101,12 +90,12 @@
 
     .sectionsHide {
         animation-name: sechide;
-        animation-duration: 0.5s;
+        animation-duration: 0.35s;
     }
 
     .sectionsShow {
         animation-name: secshow;
-        animation-duration: 0.5s;
+        animation-duration: 0.35s;
     }
 
     @keyframes sechide {
@@ -143,11 +132,9 @@
                 <i style="display: inline-block; transform: translateY(25%); color:#FFFFFF; font-size: 32px" class="material-icons">event_note</i>
                 <div style="display: inline-block;" id="head" class="head">Date</div>
             </div>
-
             <button id="btn-back" class="mdl-button mdl-js-button mdl-button--icon btn-back" onclick="BtnBack()">
                 <i class="material-icons">arrow_back_ios</i>
             </button>
-
         </header>
         <main class="mdl-layout__content">
             <div id="main">
@@ -183,6 +170,7 @@
                     <table>
                         <tr onclick="Section3()">
                             <td style="width: 100%">
+                                <i class="material-icons">fitness_center</i>
                                 <div class="text">Спина</div>
                             </td>
                             <td>
@@ -208,7 +196,7 @@
                     </table>
                 </div>
             </div>
-            <div id="sectionView1">
+            <div id="sectionView1" class="sectionsView">
                 <p>Штанга</p>
                 <div class="mdl-textfield mdl-js-textfield" style="width: 50px">
                     <input class="mdl-textfield__input" type="text" id="sample1">
@@ -219,7 +207,7 @@
                     <label class="mdl-textfield__label" for="sample1">раз</label>
                 </div>
             </div>
-            <div id="sectionView2">
+            <div id="sectionView2" class="sectionsView">
                 <p>Штанга биц</p>
                 <div class="mdl-textfield mdl-js-textfield" style="width: 50px">
                     <input class="mdl-textfield__input" type="text" id="sample1">
@@ -230,8 +218,8 @@
                     <label class="mdl-textfield__label" for="sample1">раз</label>
                 </div>
             </div>
-            <div id="sectionView3"></div>
-            <div id="sectionView4"></div>
+            <div id="sectionView3" class="sectionsView"></div>
+            <div id="sectionView4" class="sectionsView"></div>
         </main>
     </div>
     <script>
