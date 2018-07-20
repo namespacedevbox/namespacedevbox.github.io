@@ -214,6 +214,30 @@
                     display: inline-block;
                 }
 
+                .block-header {
+                    width: 100%;
+                    height: 50px;
+                    background: #2196F3;
+                    border-radius: 5px 5px 0 0;
+                    text-align: center;
+                }
+
+                .block-title {
+                    font-size: 24px;
+                    color: #FFFFFF;
+                    transform: translateY(75%)
+                }
+
+                .block-container {
+                    width: 100%;
+                    height: 50px;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    padding: 0 0 15px 0;
+                    border-radius: 0 0 5px 5px;
+                    margin: 0 0 10px 0
+                }
+
                 .block {
                     width: 25%;
                     text-align: center
@@ -221,12 +245,14 @@
             </style>
             <!-- Sections View -->
             <div id="sectionView1" class="sectionsView">
-
                 <!-- block -->
-                <div style="width: 100%; height: 50px;background: #2196F3; border-radius: 5px 5px 0 0; text-align: center;">
-                    <div style="font-size: 24px; color: #FFFFFF; transform: translateY(75%)">Штанга</div>
+                <div class="block-header">
+                    <div class="block-title">Штанга</div>
+                    <div style="color: #FFFFFF; position: relative; left: 40%;">
+                        kg
+                    </div>
                 </div>
-                <div class="mdl-shadow--2dp" style="width: 100%; height: 50px;  display: flex;  flex-wrap: nowrap; padding: 0 0 15px 0; border-radius: 0 0 5px 5px; margin: 0 0 10px 0">
+                <div class="block-container mdl-shadow--2dp">
                     <!-- 1) -->
                     <div class="block">
                         <div class="mdl-textfield mdl-js-textfield input-weight">
@@ -242,7 +268,7 @@
                     <!-- 2) -->
                     <div class="block">
                         <div class="mdl-textfield mdl-js-textfield input-weight">
-                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i3" value="42">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i3" value="52">
                             <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
                         <div class="separator">x</div>
@@ -254,7 +280,7 @@
                     <!-- 3) -->
                     <div class="block">
                         <div class="mdl-textfield mdl-js-textfield input-weight">
-                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i5" value="42">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i5" value="61">
                             <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
                         <div class="separator">x</div>
@@ -266,7 +292,7 @@
                     <!-- 4) -->
                     <div class="block">
                         <div class="mdl-textfield mdl-js-textfield input-weight">
-                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i7" value="42">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i7" value="61">
                             <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
                         <div class="separator">x</div>
@@ -278,59 +304,170 @@
                 </div>
 
                 <!-- block -->
-                <div style="width: 100%; height: 50px;background: #2196F3; border-radius: 5px 5px 0 0; text-align: center;">
-                    <div style="font-size: 24px; color: #FFFFFF; transform: translateY(75%)">Гант</div>
+                <div class="block-header">
+                    <div class="block-title">Штанга</div>
                 </div>
-                <div class="mdl-shadow--2dp" style="width: 100%; height: 50px;  display: flex;  flex-wrap: nowrap; padding: 0 0 15px 0; border-radius: 0 0 5px 5px;">
+                <div class="block-container mdl-shadow--2dp">
                     <!-- 1) -->
-                    <div style="width: 25%; text-align: center">
-                        <div class="mdl-textfield mdl-js-textfield" style="width: 27px; display: inline-block;">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="42" style="text-align: center">
-                            <label class="mdl-textfield__label" for="sample1"></label>
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i1" value="42">
+                            <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
-                        <div style="display: inline-block;">x</div>
-                        <div class="mdl-textfield mdl-js-textfield" style="width: 20px;">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="12">
-                            <label class="mdl-textfield__label" for="sample1"></label>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i2" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
                     </div>
                     <!-- 2) -->
-                    <div style="width: 25%; text-align: center">
-                        <div class="mdl-textfield mdl-js-textfield" style="width: 27px; display: inline-block;">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="42" style="text-align: center">
-                            <label class="mdl-textfield__label" for="sample1"></label>
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i3" value="52">
+                            <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
-                        <div style="display: inline-block;">x</div>
-                        <div class="mdl-textfield mdl-js-textfield" style="width: 20px;">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="12">
-                            <label class="mdl-textfield__label" for="sample1"></label>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i4" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
                     </div>
                     <!-- 3) -->
-                    <div style="width: 25%; text-align: center">
-                        <div class="mdl-textfield mdl-js-textfield" style="width: 27px; display: inline-block;">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="42" style="text-align: center">
-                            <label class="mdl-textfield__label" for="sample1"></label>
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i5" value="61">
+                            <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
-                        <div style="display: inline-block;">x</div>
-                        <div class="mdl-textfield mdl-js-textfield" style="width: 20px;">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="12">
-                            <label class="mdl-textfield__label" for="sample1"></label>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i6" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
                     </div>
                     <!-- 4) -->
-                    <div style="width: 25%; text-align: center">
-                        <div class="mdl-textfield mdl-js-textfield" style="width: 27px; display: inline-block;">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="42" style="text-align: center">
-                            <label class="mdl-textfield__label" for="sample1"></label>
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i7" value="61">
+                            <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
-                        <div style="display: inline-block;">x</div>
-                        <div class="mdl-textfield mdl-js-textfield" style="width: 20px;">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="12">
-                            <label class="mdl-textfield__label" for="sample1"></label>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i8" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
                         </div>
                     </div>
                 </div>
+
+                <!-- block -->
+                <div class="block-header">
+                    <div class="block-title">Штанга</div>
+                </div>
+                <div class="block-container mdl-shadow--2dp">
+                    <!-- 1) -->
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i1" value="42">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i2" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                    </div>
+                    <!-- 2) -->
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i3" value="52">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i4" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                    </div>
+                    <!-- 3) -->
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i5" value="61">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i6" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                    </div>
+                    <!-- 4) -->
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i7" value="61">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i8" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- block -->
+                <div class="block-header">
+                    <div class="block-title">Штанга</div>
+                </div>
+                <div class="block-container mdl-shadow--2dp">
+                    <!-- 1) -->
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i1" value="42">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i2" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                    </div>
+                    <!-- 2) -->
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i3" value="52">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i4" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                    </div>
+                    <!-- 3) -->
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i5" value="61">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i6" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                    </div>
+                    <!-- 4) -->
+                    <div class="block">
+                        <div class="mdl-textfield mdl-js-textfield input-weight">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i7" value="61">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                        <div class="separator">x</div>
+                        <div class="mdl-textfield mdl-js-textfield input-reiteration">
+                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sv1_b1_i8" value="12">
+                            <label class="mdl-textfield__label" for="lbl"></label>
+                        </div>
+                    </div>
+                </div>
+
                 <div style="width: 100%; margin: 20px 0px 0px 0px; text-align: center">
                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
                         <i class="material-icons">done</i>
