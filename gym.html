@@ -248,10 +248,8 @@
                 <!-- block 1 -->
                 <div class="block-header">
                     <div class="block-title">Штанга</div>
-                <!--     <div style="color: #FFFFFF; position: relative; left: 40%;">
-                        kg
-                    </div> -->
-                    <button style="position: absolute; top: 18px; right: 18px;color: #FFFFFF" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                    <button id="btn_sv1_b1" style="position: absolute; top: 18px; right: 18px;color: #FFFFFF" class="mdl-button mdl-js-button mdl-js-ripple-effect"
+                        onclick="UnitsSet(this)">
                         kg
                     </button>
                 </div>
@@ -309,8 +307,8 @@
                 <!-- block 2 -->
                 <div class="block-header">
                     <div class="block-title">Гант</div>
-                    <button style="position: absolute; top:142px; right: 18px; color: #000000" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                        f
+                    <button id="btn_sv1_b2" style="position: absolute; top:142px; right: 18px; color: #FFFFFF" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="UnitsSet(this)">
+                        kg
                     </button>
                 </div>
                 <div class="block-container mdl-shadow--2dp">
@@ -364,11 +362,11 @@
                     </div>
                 </div>
 
-                <!-- block -->
+                <!-- block 3 -->
                 <div class="block-header">
                     <div class="block-title">Разводка трен</div>
-                    <button style="position: absolute; top:267px; right: 18px; color: #000000" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                        f
+                    <button id="btn_sv1_b3" style="position: absolute; top:267px; right: 18px; color: #FFFFFF" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="UnitsSet(this)">
+                        kg
                     </button>
                 </div>
                 <div class="block-container mdl-shadow--2dp">
@@ -422,11 +420,11 @@
                     </div>
                 </div>
 
-                <!-- block -->
+                <!-- block 4 -->
                 <div class="block-header">
                     <div class="block-title">Кросовер</div>
-                    <button style="position: absolute; top:395px; right: 18px; color: #000000" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                        f
+                    <button id="btn_sv1_b4" style="position: absolute; top:395px; right: 18px; color: #FFFFFF" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="UnitsSet(this)">
+                        kg
                     </button>
                 </div>
                 <div class="block-container mdl-shadow--2dp">
@@ -485,10 +483,8 @@
                         <i class="material-icons">done</i>
                     </button>
                 </div>
-
-
-
             </div>
+
             <div id="sectionView2" class="sectionsView">
                 <!-- <p>Штанга биц</p>
                 <div class="mdl-textfield mdl-js-textfield" style="width: 50px">
@@ -578,6 +574,16 @@
         function BtnBack() {
             MainShow();
             SectionHide();
+        }
+
+        function UnitsSet(obj) {
+            var btn = document.getElementById(obj.id);
+            if (btn.innerText == "KG") {
+                btn.innerText = "F";
+            }
+            else {
+                btn.innerText = "KG";
+            }
         }
     </script>
 
