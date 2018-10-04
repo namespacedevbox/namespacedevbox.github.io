@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Traffic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Icon" sizes="192x192" href="ic_launcher.png">
+    <link rel="apple-touch-icon" href="ic_launcher_ios.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Google Map">
+    <style>
+        #map {
+            height: 100%;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            // Get Time
+            var time = new Date();
+            var currTime = ("0" + time.getHours()).slice(-2) + ":" + ("0" + time.getMinutes()).slice(-2) + ":" + ("0" + time.getSeconds()).slice(-2);
+            var half = "15:00:00";
+            //Set Location
+            if (currTime < half) {
+                alert("p");
+                var x = 50.398528;
+                var y = 30.634633;
+            }
+            else {
+                var x = 50.44853277;
+                var y = 30.60060203;
+            }
+            //Set Map
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: { lat: x, lng: y }
+            });
+
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+        }
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG9YXIhKBhqclZizcSzJ0ROiE0qgVfwzI&callback=initMap"></script>
+</body>
+
+</html>
