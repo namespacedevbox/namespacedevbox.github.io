@@ -34,8 +34,7 @@
             var currTime = ("0" + time.getHours()).slice(-2) + ":" + ("0" + time.getMinutes()).slice(-2) + ":" + ("0" + time.getSeconds()).slice(-2);
             var half = "15:00:00";
             //Set Location
-            if (currTime < half) {
-                alert("p");
+            if (currTime > half) {
                 var x = 50.398528;
                 var y = 30.634633;
             }
