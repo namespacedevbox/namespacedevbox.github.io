@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>:fullscreen</title>
+  <script>
+   function fullScreen() {
+    var el = document.getElementById('msg'); // Получаем элемент
+    if (el.webkitRequestFullscreen) el.webkitRequestFullscreen(); // Chrome, Opera, Safari
+    else if (el.mozRequestFullScreen) el.mozRequestFullScreen(); // Firefox
+    else if (el.msRequestFullscreen) el.msRequestFullscreen(); // Internet Explorer, Edge
+    else if (el.requestFullscreen) el.requestFullscreen(); // Стандарт
+   }
+  </script>
+  <style>
+   body { margin: 0; }
+   #msg {
+    padding: 10px;
+    background: #bc7062;
+    color: #fff;
+   }
+   #msg:-ms-fullscreen { background: #6088a5; }
+   #msg:-webkit-full-screen { background: #6088a5; }
+   #msg:-moz-full-screen { background: #6088a5; }
+  </style>
+ </head>
+ <body>
+  <div id="msg">
+   Страница отображается в полноэкранном режиме.
+  </div>
+  <p><button onclick="fullScreen()">Посмотреть на полном экране!</button></p>
+ </body>
+</html>
