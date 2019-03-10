@@ -10,13 +10,18 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Продукты">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
     <style>
         .done {
             text-decoration: line-through;
-            background: #C8E6C9;
+            color: #424242;
+            /*    background: #C8E6C9; */
         }
     </style>
 
@@ -27,7 +32,7 @@
 
     <div style="position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%); width:300px;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.823 56.823">
-            <g fill="#C8E6C9">
+            <g fill="#609946">
                 <!-- 609946 -->
                 <path
                     d="M36.272 25.308a1 1 0 0 0 1.268-.626 1.764 1.764 0 0 1 2.232-1.1 3.765 3.765 0 0 0 4.768-2.352 1 1 0 1 0-1.894-.643 1.761 1.761 0 0 1-2.232 1.1 3.77 3.77 0 0 0-4.768 2.352 1.002 1.002 0 0 0 .626 1.269zM38.638 18.34a1 1 0 0 0 1.268-.626c.151-.445.466-.805.888-1.013s.899-.238 1.344-.087a3.765 3.765 0 0 0 4.768-2.353 1.001 1.001 0 0 0-.625-1.269.998.998 0 0 0-1.268.626 1.76 1.76 0 0 1-2.232 1.101 3.729 3.729 0 0 0-2.871.188 3.738 3.738 0 0 0-1.897 2.164 1 1 0 0 0 .625 1.269zM41.002 11.372a1 1 0 0 0 1.269-.626 1.302 1.302 0 0 1 1.648-.813c.835.283 1.73.225 2.521-.164a3.282 3.282 0 0 0 1.665-1.899 1 1 0 1 0-1.894-.643 1.292 1.292 0 0 1-.656.748 1.288 1.288 0 0 1-.993.063 3.308 3.308 0 0 0-4.185 2.064 1.002 1.002 0 0 0 .625 1.27z" />
@@ -80,8 +85,7 @@
         var productList = [];
         var unit = '';
 
-
-        window.onload = function () {
+        $(document).ready(function () {
             var list = JSON.parse(localStorage.getItem("plist"));
             if (list != null) {
                 productList = list;
@@ -91,15 +95,45 @@
                 var p = element.split('_&_')[0];
                 var q = element.split('_&_')[1];
                 var u = element.split('_&_')[2];
-                RenderList(p, q, u);
+                var d = element.split('_&_')[3];
+                RenderList(p, q, u, d);
+            });
+
+            ItemClick();
+        });
+
+        function ItemClick() {
+
+            $('ul li').click(function (e) {
+                var index = $(this).index();
+                var item = productList[index];
+
+                var p = item.split('_&_')[0];
+                var q = item.split('_&_')[1];
+                var u = item.split('_&_')[2];
+                var d = item.split('_&_')[3];
+
+                var exist = this.classList.toggle('done');
+                if (exist) {
+                    var d = 'done';
+                    productList[index] = p + '_&_' + q + '_&_' + u + '_&_' + d;
+                    SeveList();
+                }
+                else {
+                    var d = '';
+                    productList[index] = p + '_&_' + q + '_&_' + u + '_&_' + d;
+                    SeveList();
+                }
             });
         }
 
-        function RenderList(p, q, u) {
-            $("#list").append('<li class="list-group-item d-flex justify-content-between align-items-center font-weight-bold">' + p + '<span class="badge badge-primary badge-pill">' + q + u + '</span></li>');
-            $("#list  li:last-child").click(function () {
-                this.classList.toggle('done');
-            });
+        function RenderList(p, q, u, d) {
+            $("#list").append('<li class="list-group-item d-flex justify-content-between align-items-center font-weight-bold ' + d + '">' + p + '<span class="badge badge-primary badge-pill">' + q + u + '</span></li>');
+            /*            $("#list  li:last-child").click(function () {
+                           this.classList.toggle('done');
+                           var index = $("#list").index(this);
+                           alert(index);
+                       }); */
         }
 
         function AddItem() {
@@ -107,9 +141,8 @@
             var quantity = $('#quantity');
 
             RenderList(product.val(), quantity.val(), unit);
-            productList.push(product.val() + '_&_' + quantity.val() + '_&_' + unit);
-
-            localStorage.setItem('plist', JSON.stringify(productList));
+            productList.push(product.val() + '_&_' + quantity.val() + '_&_' + unit + '_&_');
+            SeveList();
 
             product.val('');
             quantity.val('');
@@ -126,6 +159,9 @@
             })
         }
 
+        function SeveList() {
+            localStorage.setItem('plist', JSON.stringify(productList));
+        }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
