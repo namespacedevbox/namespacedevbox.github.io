@@ -26,7 +26,7 @@
             background: #F5F5F5;
         }
 
-        .mdl-button--fab {
+        .button-fab {
             border: 0;
             border-radius: 50%;
             font-size: 24px;
@@ -48,7 +48,7 @@
             padding-top: 0;
             padding-bottom: 0;
             line-height: 56px;
-        }      
+        }
     </style>
 
     <!-- Nav bar -->
@@ -64,7 +64,7 @@
             </svg>
         </button>
 
-        <button class="mdl-button--fab btn-primary mx-auto d-flex justify-content-center align-items-center"
+        <button class="button-fab btn-primary mx-auto d-flex justify-content-center align-items-center"
             style="transform: translateY(-30%)" data-toggle="modal" onclick="OpenDialog()" data-target="#addingDialog">
             <svg width="24" height="24" viewBox="0 0 24 24">
                 <g fill="#fff">
@@ -186,6 +186,8 @@
         function AddItem() {
             var product = $('#product');
             var quantity = $('#quantity');
+
+            if (product.val() == '') { return; }
 
             RenderList(product.val(), quantity.val(), unit);
             productList.push(product.val() + '_&_' + quantity.val() + '_&_' + unit + '_&_');
