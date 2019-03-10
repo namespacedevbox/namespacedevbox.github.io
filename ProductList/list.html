@@ -13,13 +13,22 @@
 </head>
 
 <body>
+    <style>
+        .done {
+            text-decoration: line-through;
+            background: #C8E6C9;
+        }
+    </style>
+
     <nav class="navbar fixed-bottom navbar-light bg-light border rounded m-1">
-        <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" onclick="Open()"
+        <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" onclick="OpenDialog()"
             data-target="#addingDialog">Добавить</button>
     </nav>
-    <div style="position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%); ; width:300px">
+
+    <div style="position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%); width:300px;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.823 56.823">
-            <g fill="#609946">
+            <g fill="#C8E6C9">
+                <!-- 609946 -->
                 <path
                     d="M36.272 25.308a1 1 0 0 0 1.268-.626 1.764 1.764 0 0 1 2.232-1.1 3.765 3.765 0 0 0 4.768-2.352 1 1 0 1 0-1.894-.643 1.761 1.761 0 0 1-2.232 1.1 3.77 3.77 0 0 0-4.768 2.352 1.002 1.002 0 0 0 .626 1.269zM38.638 18.34a1 1 0 0 0 1.268-.626c.151-.445.466-.805.888-1.013s.899-.238 1.344-.087a3.765 3.765 0 0 0 4.768-2.353 1.001 1.001 0 0 0-.625-1.269.998.998 0 0 0-1.268.626 1.76 1.76 0 0 1-2.232 1.101 3.729 3.729 0 0 0-2.871.188 3.738 3.738 0 0 0-1.897 2.164 1 1 0 0 0 .625 1.269zM41.002 11.372a1 1 0 0 0 1.269-.626 1.302 1.302 0 0 1 1.648-.813c.835.283 1.73.225 2.521-.164a3.282 3.282 0 0 0 1.665-1.899 1 1 0 1 0-1.894-.643 1.292 1.292 0 0 1-.656.748 1.288 1.288 0 0 1-.993.063 3.308 3.308 0 0 0-4.185 2.064 1.002 1.002 0 0 0 .625 1.27z" />
                 <path
@@ -30,12 +39,9 @@
         </svg>
     </div>
 
+    <!--     <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck1"><label class="custom-control-label" for="customCheck1"></label></div> -->
+
     <ul id="list" class="list-group m-1">
-        <!--        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li> -->
     </ul>
 
     <div class="modal" id="addingDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -50,60 +56,75 @@
                 </div>
                 <div class="modal-body">
                     <input id="product" type="text" class="form-control mb-3" placeholder="Продукт">
-                    <div class="input-group">
+                    <div class="input-group mb-4">
                         <input id="quantity" type="number" min="0" inputmode="numeric" pattern="[0-9]*"
                             class="form-control" placeholder="Количество"
                             aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
                         <div class="input-group-append" id="button-addon4">
-                            <button class="btn btn-outline-secondary" type="button" onclick="Append('л')">л</button>
-                            <button class="btn btn-outline-secondary" type="button" onclick="Append('шт')">шт</button>
+                            <button class="btn btn-outline-secondary" type="button" onclick="AddUnit('л')">л</button>
+                            <button class="btn btn-outline-secondary" type="button" onclick="AddUnit('шт')">шт</button>
                             <button class="btn btn-outline-secondary" type="button"
-                                onclick="Append('грамм')">грамм</button>
+                                onclick="AddUnit('грамм')">грамм</button>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                    <button type="button" class="btn btn-primary" onclick="Add()"
-                        data-dismiss="modal">Сохранить</button>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" onclick="AddItem()"
+                            data-dismiss="modal">Сохранить</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        var productList = [];
+        var unit = '';
 
-        function Append(text) {
-            var quantity = $('#quantity');
-            quantity.val(quantity.val() + ' ' + text);
+
+        window.onload = function () {
+            var list = JSON.parse(localStorage.getItem("plist"));
+            if (list != null) {
+                productList = list;
+            }
+
+            productList.forEach(element => {
+                var p = element.split('_&_')[0];
+                var q = element.split('_&_')[1];
+                var u = element.split('_&_')[2];
+                RenderList(p, q, u);
+            });
         }
 
-        function Add() {
+        function RenderList(p, q, u) {
+            $("#list").append('<li class="list-group-item d-flex justify-content-between align-items-center font-weight-bold">' + p + '<span class="badge badge-primary badge-pill">' + q + u + '</span></li>');
+            $("#list  li:last-child").click(function () {
+                this.classList.toggle('done');
+            });
+        }
+
+        function AddItem() {
             var product = $('#product');
             var quantity = $('#quantity');
 
-            $("#list").append('<li class="list-group-item d-flex justify-content-between align-items-center">' + product.val() + '<span class="badge badge-primary badge-pill">' + quantity.val() + '</span></li>');
+            RenderList(product.val(), quantity.val(), unit);
+            productList.push(product.val() + '_&_' + quantity.val() + '_&_' + unit);
+
+            localStorage.setItem('plist', JSON.stringify(productList));
 
             product.val('');
             quantity.val('');
+            unit = '';
         }
 
-        function Open() {
+        function AddUnit(value) {
+            unit = ' ' + value;
+        }
+
+        function OpenDialog() {
             $('#addingDialog').on('shown.bs.modal', function () {
                 $('#product').trigger('focus');
-                $(".modal-backdrop.in").remove();
             })
-
-            /*      $('#modal-id').on('shown.bs.modal', function () {
-                     $(".modal-backdrop.in").hide();
-                 }) */
         }
-
-
-        $(document).ready(function () {
-
-        });
-
 
     </script>
 
