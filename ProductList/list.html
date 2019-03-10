@@ -20,14 +20,21 @@
     <style>
         .done {
             text-decoration: line-through;
-            color: #424242;
-            /*    background: #C8E6C9; */
+            background: #F5F5F5;
         }
     </style>
 
     <nav class="navbar fixed-bottom navbar-light bg-light border rounded m-1">
         <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" onclick="OpenDialog()"
-            data-target="#addingDialog">Добавить</button>
+            data-target="#addingDialog">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <g fill="#fff">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </g>
+            </svg>
+            Добавить
+        </button>
     </nav>
 
     <div style="position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%); width:300px;">
@@ -45,9 +52,18 @@
     </div>
 
     <!--     <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck1"><label class="custom-control-label" for="customCheck1"></label></div> -->
+    <div style="padding-bottom: 58px;">
+        <ul id="list" class="list-group m-1">
+        </ul>
+        <button type="button" class="btn btn-light m-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z" />
+                <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+                <path fill="none" d="M0 0h24v24H0z" /></svg></button>
+    </div>
 
-    <ul id="list" class="list-group m-1">
-    </ul>
+
 
     <div class="modal" id="addingDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
@@ -86,6 +102,7 @@
         var unit = '';
 
         $(document).ready(function () {
+
             var list = JSON.parse(localStorage.getItem("plist"));
             if (list != null) {
                 productList = list;
@@ -98,42 +115,33 @@
                 var d = element.split('_&_')[3];
                 RenderList(p, q, u, d);
             });
-
-            ItemClick();
         });
 
-        function ItemClick() {
+        function ItemClicks() {
+            var index = $(this).index();
+            var item = productList[index];
 
-            $('ul li').click(function (e) {
-                var index = $(this).index();
-                var item = productList[index];
+            var p = item.split('_&_')[0];
+            var q = item.split('_&_')[1];
+            var u = item.split('_&_')[2];
+            var d = item.split('_&_')[3];
 
-                var p = item.split('_&_')[0];
-                var q = item.split('_&_')[1];
-                var u = item.split('_&_')[2];
-                var d = item.split('_&_')[3];
-
-                var exist = this.classList.toggle('done');
-                if (exist) {
-                    var d = 'done';
-                    productList[index] = p + '_&_' + q + '_&_' + u + '_&_' + d;
-                    SeveList();
-                }
-                else {
-                    var d = '';
-                    productList[index] = p + '_&_' + q + '_&_' + u + '_&_' + d;
-                    SeveList();
-                }
-            });
+            var exist = this.classList.toggle('done');
+            if (exist) {
+                var d = 'done';
+                productList[index] = p + '_&_' + q + '_&_' + u + '_&_' + d;
+                SeveList();
+            }
+            else {
+                var d = '';
+                productList[index] = p + '_&_' + q + '_&_' + u + '_&_' + d;
+                SeveList();
+            }
         }
 
         function RenderList(p, q, u, d) {
             $("#list").append('<li class="list-group-item d-flex justify-content-between align-items-center font-weight-bold ' + d + '">' + p + '<span class="badge badge-primary badge-pill">' + q + u + '</span></li>');
-            /*            $("#list  li:last-child").click(function () {
-                           this.classList.toggle('done');
-                           var index = $("#list").index(this);
-                           alert(index);
-                       }); */
+            $("#list  li:last-child").on('click', ItemClicks);
         }
 
         function AddItem() {
@@ -173,6 +181,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>
