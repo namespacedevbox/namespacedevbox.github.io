@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#007bff">
     <meta name="apple-mobile-web-app-title" content="Продукты">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -22,25 +22,72 @@
             text-decoration: line-through;
             background: #F5F5F5;
         }
+
+        .mdl-button--fab {
+            border: 0;
+            border-radius: 50%;
+            font-size: 24px;
+            height: 56px;
+            margin: auto;
+            min-width: 56px;
+            width: 56px;
+            padding: 0;
+            overflow: hidden;
+            /*             background: rgba(158, 158, 158, 0.20); */
+            box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+            position: relative;
+            line-height: normal;
+            outline: 0;
+            margin: 0;
+        }
+
+        .custom-nav-bar {
+            height: 56px;
+            padding-top: 0;
+            padding-bottom: 0;
+            /*   height: 50px; */
+            line-height: 56px;
+        }
     </style>
 
-    <nav class="navbar fixed-bottom navbar-light bg-light border rounded m-1">
-        <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" onclick="OpenDialog()"
-            data-target="#addingDialog">
+    <!-- Nav bar -->
+    <nav class="navbar fixed-bottom navbar-light bg-light border rounded m-1 custom-nav-bar">
+
+        <button onclick="ClearList()" type="button"
+            class="btn btn-light d-flex justify-content-center align-items-center">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z" />
+                <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+                <path fill="none" d="M0 0h24v24H0z" />
+            </svg>
+        </button>
+
+        <button class="mdl-button--fab btn-primary mx-auto d-flex justify-content-center align-items-center"
+            style="transform: translateY(-30%)" data-toggle="modal" onclick="OpenDialog()" data-target="#addingDialog">
             <svg width="24" height="24" viewBox="0 0 24 24">
                 <g fill="#fff">
                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                     <path d="M0 0h24v24H0z" fill="none" />
                 </g>
             </svg>
-            Добавить
         </button>
+
+        <button type="button" class="btn btn-light d-flex justify-content-center align-items-center invisible">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z" />
+                <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+                <path fill="none" d="M0 0h24v24H0z" />
+            </svg>
+        </button>
+
     </nav>
 
+    <!-- Background -->
     <div style="position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%); width:300px;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.823 56.823">
             <g fill="#609946">
-                <!-- 609946 -->
                 <path
                     d="M36.272 25.308a1 1 0 0 0 1.268-.626 1.764 1.764 0 0 1 2.232-1.1 3.765 3.765 0 0 0 4.768-2.352 1 1 0 1 0-1.894-.643 1.761 1.761 0 0 1-2.232 1.1 3.77 3.77 0 0 0-4.768 2.352 1.002 1.002 0 0 0 .626 1.269zM38.638 18.34a1 1 0 0 0 1.268-.626c.151-.445.466-.805.888-1.013s.899-.238 1.344-.087a3.765 3.765 0 0 0 4.768-2.353 1.001 1.001 0 0 0-.625-1.269.998.998 0 0 0-1.268.626 1.76 1.76 0 0 1-2.232 1.101 3.729 3.729 0 0 0-2.871.188 3.738 3.738 0 0 0-1.897 2.164 1 1 0 0 0 .625 1.269zM41.002 11.372a1 1 0 0 0 1.269-.626 1.302 1.302 0 0 1 1.648-.813c.835.283 1.73.225 2.521-.164a3.282 3.282 0 0 0 1.665-1.899 1 1 0 1 0-1.894-.643 1.292 1.292 0 0 1-.656.748 1.288 1.288 0 0 1-.993.063 3.308 3.308 0 0 0-4.185 2.064 1.002 1.002 0 0 0 .625 1.27z" />
                 <path
@@ -51,20 +98,11 @@
         </svg>
     </div>
 
-    <!--     <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck1"><label class="custom-control-label" for="customCheck1"></label></div> -->
-    <div style="padding-bottom: 58px;">
-        <ul id="list" class="list-group m-1">
-        </ul>
-        <button type="button" class="btn btn-light m-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24">
-                <path fill="none" d="M0 0h24v24H0V0z" />
-                <path
-                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
-                <path fill="none" d="M0 0h24v24H0z" /></svg></button>
-    </div>
+    <!-- Product list -->
+    <ul id="list" class="list-group m-1" style="padding-bottom: 58px;">
+    </ul>
 
-
-
+    <!-- Dialog -->
     <div class="modal" id="addingDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -169,6 +207,11 @@
 
         function SeveList() {
             localStorage.setItem('plist', JSON.stringify(productList));
+        }
+
+        function ClearList() {
+            $('ul').empty()
+            localStorage.clear();
         }
     </script>
 
