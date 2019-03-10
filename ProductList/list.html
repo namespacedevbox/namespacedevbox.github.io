@@ -40,7 +40,7 @@
 
     <div class="modal" id="addingDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Добвление</h5>
@@ -51,7 +51,8 @@
                 <div class="modal-body">
                     <input id="product" type="text" class="form-control mb-3" placeholder="Продукт">
                     <div class="input-group">
-                        <input id="quantity" type="text" class="form-control" placeholder="Количество"
+                        <input id="quantity" type="number" min="0" inputmode="numeric" pattern="[0-9]*"
+                            class="form-control" placeholder="Количество"
                             aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
                         <div class="input-group-append" id="button-addon4">
                             <button class="btn btn-outline-secondary" type="button" onclick="Append('л')">л</button>
