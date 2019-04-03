@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Traffic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Icon" sizes="192x192" href="ic_launcher.png">
+    <link rel="apple-touch-icon" href="ic_launcher_ios.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Traffic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+        #map {
+           height: 100%;
+       }
+       html,
+       body {
+           height: 100%;
+           margin: 0;
+           padding: 0;
+       }
+       /* Dialog Modal (background) */
+       .modal {
+           display: none;
+           position: fixed;
+           z-index: 1;
+           left: 0;
+           top: 0;
+           width: 100%;
+           height: 100%;
+           /*  overflow: auto; */
+           background-color: rgb(0, 0, 0);
+           background-color: rgba(0, 0, 0, 0.1);
+       }
+       /* Dialog Modal Content */
+       .modal-content {
+           background-color: #fefefe;
+           position: relative;
+           left: 50%;
+           top: 50%;
+           transform: translate(-50%, -50%);
+           padding: 15px;
+           width: 300px;
+            /*height: 320px;*/
+       }
+      
+       /* Отступы внутри */
+       .card {
+           padding: 20px 0;
+       }
+
+       .mdl-textfield__input {
+            font-size: 18px;
+            border-radius: 0;
+        }
+   </style>
+</head>
+
+<body>
+<!--     <div id="map"></div> -->
+    <iframe src="https://api-maps.yandex.ua/frame/v1/-/CVgi4DZd" width="100%" height="100%" frameborder="0"></iframe>
+<!--     <button id="btn-settings" style="position: absolute; top: 11px; right: 11px; color: #eb2269; background: #363636"
+        onclick="showDialogSettings()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--mini-fab mdl-button--colored">
+        <i class="material-icons">settings</i>
+    </button>
+ -->
+    <button id="btn-done" style="position: absolute; left: 50%; bottom: 75px; transform: translateX(-50%); display: none;color: #eb2269; background: #363636"
+        class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="setCoord()">
+        <i class="material-icons">done</i>
+    </button>
+
+    <button id="btn-cancel" style="position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); display: none; color: #eb2269; background: #363636"
+        onclick="cancelCoord()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--mini-fab mdl-button--colored">
+        <i class="material-icons">close</i>
+    </button>
+
+    <!-- The Modal -->
+    <div id="dialog-settings" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content mdl-dialog">
+            <div class="mdl-dialog__title">Настройки</div>
+            <div class="mdl-dialog__content">
+                <div class="card">
+                    <div id="boxMorning" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" name="name" type="text" id="morningInput" readonly>
+                        <label class="mdl-textfield__label" for="morningInput">Местоположение утром</label>
+                    </div>
+                    <div style="text-align: center;">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="getCoord('morning')">
+                            Выбрать на карте
+                        </button>
+                    </div>
+
+                    <div style="height: 25px;"></div>
+
+                    <div id="boxEvening" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" name="text" type="text" id="eveningInput" readonly>
+                        <label class="mdl-textfield__label" for="eveningInput">Местоположение вечером</label>
+                    </div>
+                    <div style="text-align: center;">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="getCoord('evening')">
+                            Выбрать на карте
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-dialog__actions">
+                <!--   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="setCoord(«evening»)">Сохранить</button> -->
+                <button id="close-dialog-settings" type="button" class="mdl-button close">Закрыть</button>
+            </div>
+        </div>
+    
+    </div>
+    <script>
+        // Google
+        var map;
+        var marker;
+
+        // Get Coordinates
+        var mCoordX = window.localStorage.getItem('morningCoordX');
+        var mCoordY = window.localStorage.getItem('morningCoordY');
+        var eCoordX = window.localStorage.getItem('eveningCoordX');
+        var eCoordY = window.localStorage.getItem('eveningCoordY');
+
+        // Coords
+        var stage;
+        var currX;
+        var currY;
+
+        // UI
+        var modal = document.getElementById('dialog-settings');
+        var btnDone = document.getElementById('btn-done');
+        var btnCancel = document.getElementById('btn-cancel');
+
+        function initMap() {
+            // Get Time
+            var time = new Date();
+            var currTime = ("0" + time.getHours()).slice(-2) + ":" + ("0" + time.getMinutes()).slice(-2) + ":" + ("0" + time.getSeconds()).slice(-2);
+            var half = "15:00:00";
+            //Set Location
+            if (currTime < half) {
+                var x = Number(mCoordX);
+                var y = Number(mCoordY);
+            }
+            else {
+                var x = Number(eCoordX);
+                var y = Number(eCoordY);
+            }
+            if ((mCoordX == null || mCoordY == null) || (eCoordX == null || eCoordY == null)) {
+                var x = 50.449999;
+                var y = 30.524161;
+            }
+            //Set Map
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: { lat: x, lng: y }
+            });
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+        }
+
+        // Set marker and coord
+        function getCoord(id) {
+            stage = id;
+
+            new google.maps.event.addListener(map, 'click', function (event) {
+
+                currX = event.latLng.lat();
+                currY = event.latLng.lng();
+
+                // Remove marker
+                if (marker != null) {
+                    marker.setMap(null);
+                }
+
+                marker = new google.maps.Marker({
+                    position: event.latLng,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP,
+                    map: map,
+                    //title: 'Marker'
+                });
+                marker.addListener('click', toggleBounce);
+            });
+            // Animation drop pinned
+            function toggleBounce() {
+                if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+            // Hide dialog
+            modal.style.display = "none";
+            btnDone.style.display = "block";
+            btnCancel.style.display = "block";
+        }
+
+        function setCoord() {
+            // Remove listener
+            google.maps.event.clearListeners(map, 'click');
+            // Remove marker
+            if (marker != null) {
+                marker.setMap(null);
+            }
+
+            btnDone.style.display = "none";
+            btnCancel.style.display = "none";
+
+            switch (stage) {
+                case 'morning':
+                    window.localStorage.setItem('morningCoordX', currX);
+                    window.localStorage.setItem('morningCoordY', currY);
+                    mCoordX = window.localStorage.getItem('morningCoordX');
+                    mCoordY = window.localStorage.getItem('morningCoordY');
+                    break;
+                case 'evening':
+                    window.localStorage.setItem('eveningCoordX', currX);
+                    window.localStorage.setItem('eveningCoordY', currY);
+                    eCoordX = window.localStorage.getItem('eveningCoordX');
+                    eCoordY = window.localStorage.getItem('eveningCoordY');
+                    break;
+            }
+        }
+
+        function cancelCoord() {
+            // Remove listener
+            google.maps.event.clearListeners(map, 'click');
+            // Remove marker
+            if (marker != null) {
+                marker.setMap(null);
+            }
+
+            btnDone.style.display = "none";
+            btnCancel.style.display = "none";
+        }
+
+        // Show Dialog
+        function showDialogSettings() {
+            if (btnDone.style.display == 'none') {
+
+
+                modal.style.display = "block";
+                var btnClose = document.getElementById("close-dialog-settings");
+                btnClose.onclick = function () { modal.style.display = "none"; }
+
+                if (mCoordX != null && mCoordY != null) {
+                    document.getElementById("morningInput").value = mCoordX + " , " + mCoordY;
+                    document.getElementById("boxMorning").classList.add("is-dirty")
+                }
+
+                if (eCoordX != null && eCoordY != null) {
+                    document.getElementById("eveningInput").value = eCoordX + " , " + eCoordY;
+                    document.getElementById("boxEvening").classList.add("is-dirty")
+                }
+            }
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL5vjkXf9Rrd0CQxRCyckeo-jH_zFNUEc&#038;callback=initMap"></script>
+</body>
+
+</html
