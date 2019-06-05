@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Projects</title>
+    <link rel="Icon" sizes="192x192" href="ic_launcher.png">
+    <link rel="apple-touch-icon" href="ic_launcher_ios.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Projects">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -48,12 +57,19 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            /*             height: 100px;
-            width: 300px;
-            border-radius: 5px;
-            background: white;
-            opacity: 0.5; */
+        }
 
+        .main-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: white;
+            opacity: 0.7;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 7px;
+            padding: 7px 15px;
+            text-decoration: none;
         }
 
         .fade-text {
@@ -69,29 +85,38 @@
                 opacity: 0.7;
             }
         }
-
-        .main-text {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 48px;
-            font-weight: 400;
-            color: white;
-            opacity: 0.7;
-        }
     </style>
 
-    <div
-        style="position: fixed; width: calc(100% - 10px); height: 60px; background: white; opacity: 0.1;margin: 5px; border-radius: 5px;">
-
-    </div>
     <div class="main">
         <div class="centered">
-            <a class="fade-text main-text">Projects</a>
+            <div>
+                <a href="#projects" class="fade-text main-text">&lt;Projects/&gt;</a>
+            </div>
+            <br />
+            <div>
+                <a href="#about" class="fade-text main-text">&lt;About/&gt;</a>
+            </div>
         </div>
     </div>
 
-    <div class="content">
+    <div id="projects" class="content">
         <h1 style="position: relative; top: 50%">content</h1>
     </div>
+    <div id="about" class="content">
+        <h1 style="position: relative; top: 50%">about</h1>
+    </div>
+    <script>
+        var $page = $('html, body');
+        $('a[href*="#"]').click(function () {
+            $page.animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 400);
+            return false;
+        });
+
+        mdc.autoInit();
+    </script>
+
 </body>
 
 </html>
