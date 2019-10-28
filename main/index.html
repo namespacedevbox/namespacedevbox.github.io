@@ -1,122 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Projects</title>
-    <link rel="Icon" sizes="192x192" href="ic_launcher.png">
-    <link rel="apple-touch-icon" href="ic_launcher_ios.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Projects">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Projets</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .main {
-            width: 100%;
-            height: 100vh;
-            background-image: linear-gradient(125deg, #FE4871, #EF4689, #BB48BE, #8F49E8, #6347FE);
-            background-size: 400% 400%;
-            animation: background-anim 15s infinite;
-        }
-
-        @keyframes background-anim {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .content {
-            width: 100%;
-            height: 100vh;
-        }
-
-        .centered {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .main-text {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 48px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            color: white;
-            opacity: 0.7;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 7px 15px;
-            text-decoration: none;
-        }
-
-        .fade-text {
-            animation: fade-anim 3s;
-        }
-
-        @keyframes fade-anim {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 0.7;
-            }
-        }
-    </style>
-
-    <div class="main">
-        <div class="centered">
-            <div>
-                <a href="#projects" class="fade-text main-text">&lt;Projects/&gt;</a>
+    <div class="container">
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <img style="width: 150px;" src="./data.svg" alt="">
+                    <h3>Design</h3>
+                </div>
             </div>
-            <br />
-            <div>
-                <a href="#about" class="fade-text main-text">&lt;About/&gt;</a>
+            <div class="face face2">
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda odit, fuga dolorem, nihil
+                        maiores rem corrupti adipisci eaque consectetur</p>
+                    <a href="#">Read More</a>
+                </div>
             </div>
         </div>
     </div>
-
-    <div id="projects" class="content">
-        <h1 style="position: relative; top: 50%">content</h1>
-    </div>
-    <div id="about" class="content">
-        <h1 style="position: relative; top: 50%">about</h1>
-    </div>
-    <script>
-        var $page = $('html, body');
-        $('a[href*="#"]').click(function () {
-            $page.animate({
-                scrollTop: $($.attr(this, 'href')).offset().top
-            }, 400);
-            return false;
-        });
-
-        mdc.autoInit();
-    </script>
-
 </body>
 
 </html>
