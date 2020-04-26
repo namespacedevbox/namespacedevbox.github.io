@@ -48,7 +48,7 @@
             padding-top: 0;
             padding-bottom: 0;
             line-height: 56px;
-        }      
+        }
     </style>
 
     <!-- Nav bar -->
@@ -186,6 +186,8 @@
         function AddItem() {
             var product = $('#product');
             var quantity = $('#quantity');
+
+            if (product.val() == '') { return; }
 
             RenderList(product.val(), quantity.val(), unit);
             productList.push(product.val() + '_&_' + quantity.val() + '_&_' + unit + '_&_');
