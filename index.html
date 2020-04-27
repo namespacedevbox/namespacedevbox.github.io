@@ -1,119 +1,58 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
-    <title>4PerzЯ</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="R/css/material.css">
-    <link rel="stylesheet" href="R/css/style.css">
-    <script defer src="R/js/material.js"></script>
-    <script defer src="R/js/script.js"></script>
-    <link rel="Icon" sizes="192x192" href="R/img/ic_launcher.png">
-    <link rel="apple-touch-icon" href="R/img/ic_launcher_ios.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="4PerzЯ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>BlazorWASM</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <!-- Start Single Page Apps for GitHub Pages -->
+    <script type="text/javascript">
+        // Single Page Apps for GitHub Pages
+        // https://github.com/rafrex/spa-github-pages
+        // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+        // ----------------------------------------------------------------------
+        // This script checks to see if a redirect is present in the query string
+        // and converts it back into the correct url and adds it to the
+        // browser's history using window.history.replaceState(...),
+        // which won't cause the browser to attempt to load the new url.
+        // When the single page app is loaded further down in this file,
+        // the correct url will be waiting in the browser's history for
+        // the single page app to route accordingly.
+        (function (l) {
+            if (l.search) {
+                var q = {};
+                l.search.slice(1).split('&').forEach(function (v) {
+                    var a = v.split('=');
+                    q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+                });
+                if (q.p !== undefined) {
+                    window.history.replaceState(null, null,
+                        l.pathname.slice(0, -1) + (q.p || '') +
+                        (q.q ? ('?' + q.q) : '') +
+                        l.hash
+                    );
+                }
+            }
+        }(window.location))
+    </script>
+    <!-- End Single Page Apps for GitHub Pages -->
 </head>
 
 <body>
-    <!-- Layout -->
-    <div class="mdl-layout mdl-js-layout" id="drawer">
-        <div class="mdl-layout__drawer">
-            <!-- <span class="mdl-layout-title">Title</span>-->
-            <div style="width:238px; text-align: center; margin-top: 40px;">
-                <img src="R/img/index/bg_menu_title.png" width="140" height="118" onclick="closeDrawer()" />
-            </div>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="index.html">
-                    <i class="material-icons" style="margin-right: 5px">favorite</i>
-                    Головна</a>
-                <a class="mdl-navigation__link" href="page_shares.html">
-                    <i class="material-icons" style="margin-right: 5px">redeem</i>
-                    Акції</a>
-                <a class="mdl-navigation__link" href="page_menu.html">
-                    <i class="material-icons" style="margin-right: 5px">restaurant</i>
-                    Меню</a>
-                <a class="mdl-navigation__link" href="page_photo.html">
-                    <i class="material-icons" style="margin-right: 5px">local_see</i>
-                    Фотогалерея</a>
-                <a class="mdl-navigation__link" href="page_contact.html">
-                    <i class="material-icons" style="margin-right: 5px">pin_drop</i>
-                    Контакти</a>
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <div id="main1" class="myfullscreen" style="background: url('R/img/index/bg_main.jpg') center / cover;">
-                <div class="arrow">
-                    <a href="#main2">
-                        <div class="icon-arrow-hint animated-arrow-1"></div>
-                        <div class="icon-arrow-hint animated-arrow-2"></div>
-                    </a>
-                </div>
-            </div>
-            <div id="main2" style="background: #ffffff; padding: 5%">
-                <div align="center">
-                    <img style="transform: rotate(180deg)" src="R/img/index/text_separator.png" />
-                </div>
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--8-col">
-                        <div style="font-size: 18px; text-align: justify; line-height: 1.4;">
-                            Кафе маминой кухни 4ПерцЯ – Мы создавали идею домашнего заведения с теплой и позитивной атмосферой. Там, где каждый сможет
-                            ощутить себя на маминой кухне, там, где тепло, уютно, а главное вкусно. Так было в моем детстве
-                            и теперь я хочу поделится этим с Вами. Попробовать воздушные кексы с домашним вареньем, сочные
-                            ребра и колбаски, как с воскресного пикника, тающие во рту пельмешки со сметанкой и домашней
-                            аджикой. Мы ждем каждого и готовы передать всем частичку тепла и доброты как главные ингредиенты
-                            наших блюд. Галина Коптилова и ее семья.
-                        </div>
-                    </div>
-                    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" align="center">
-                        <img src="R/img/index/photo.jpg" style="width: 100%;" />
-                    </div>
-                </div>
-                <div align="center">
-                    <img src="R/img/index/text_separator.png" />
-                </div>
-            </div>
-            <div id="main3" style="background:url('R/img/index/bg_footer.jpg') center / cover; height: 200px">
-            </div>
-        </main>
+    <app>Loading...</app>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
     </div>
-    <footer class="mdl-color--gray-900" style="box-sizing: content-box;">
-        <a href="#main1">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: relative; left: 50%; top:0px; transform: translate(-50%, -50%); z-index: 1;">
-                <i class="material-icons" style="color: #ffffff; font-size: 24px;">keyboard_arrow_up</i>
-            </button>
-        </a>
-        <ul class="mdl-mega-footer__link-list" style="text-align: center; color: rgb(158,158,158);">
-            <li>
-                <img src="R/img/index/bg_logo.png" style="margin-bottom: 20px">
-            </li>
-            <li>
-                <a href="page_contact.html">м. Киев, вул. Градинська 9</a>
-            </li>
-            <li>
-                <a>Режим роботи: 15:00-00:00</a>
-            </li>
-            <li>
-                <a>Тел. +38 063 123 45 67</a>
-            </li>
-            <li>
-                <a>© 2018</a>
-            </li>
-        </ul>
-    </footer>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
 </body>
-<script src="R/js/jquery-3.3.1.min.js"></script>
-<script>
-    //Прокрутка к якорю
-    var $page = $('html, body');
-    $('a[href*="#"]').click(function () {
-        $page.animate({
-            scrollTop: $($.attr(this, 'href')).offset().top
-        }, 400);
-        return false;
-    });
-</script>
 
 </html>
