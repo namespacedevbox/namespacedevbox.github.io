@@ -1,6 +1,6 @@
 {
-  "name": "BlazorWASM",
-  "short_name": "BlazorWASM",
+  "name": "WASM",
+  "short_name": "WASM",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
