@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Traffic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Icon" sizes="192x192" href="ic_launcher.png">
+    <link rel="apple-touch-icon" href="ic_launcher_ios.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Traffic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL5vjkXf9Rrd0CQxRCyckeo-jH_zFNUEc&#038;callback=initMap"></script>
+    <style>
+        #map {
+            height: 100%;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <button
+        style="position: absolute; left: 50%; bottom: 7%; transform: translateX(-50%); color: #eb2269; background: #363636"
+        class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="getCoord()">
+        <i class="material-icons">near_me</i>
+    </button>
+    <script>
+        // Google
+        var map;
+        // Coords
+        var currX;
+        var currY;
+
+        function initMap() {
+            var x = 50.449999;
+            var y = 30.524161;
+            setGoogleMap(x, y);
+        }
+
+        function setGoogleMap(x, y) {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: { lat: x, lng: y }
+            });
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+        }
+
+        function getCoord() {
+            navigator.geolocation.getCurrentPosition(setPosition);
+        }
+
+        function setPosition(position) {
+            var myPlace = { lat: position.coords.latitude, lng: position.coords.longitude };
+            map.setCenter(myPlace);
+        }
+    </script>
+</body>
+
+</html
